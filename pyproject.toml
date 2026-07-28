@@ -1,0 +1,31 @@
+[project]
+name = "maxvo"
+version = "0.1.0"
+description = "Scripts and tooling for working with a personal Obsidian vault"
+requires-python = ">=3.11"
+dependencies = [
+    "click>=8.1",
+    "python-frontmatter>=1.1",
+]
+
+[project.scripts]
+maxvo = "maxvo.cli:main"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.6",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

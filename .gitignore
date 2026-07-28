@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+
+# Obsidian workspace/cache state is machine-specific; config & plugins are kept.
+vault/.obsidian/workspace*.json
+vault/.obsidian/cache
+vault/.trash/
