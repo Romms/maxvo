@@ -5,7 +5,24 @@ description: Run Roman's weekly checkpoint ritual - review last week's commitmen
 
 # Weekly checkpoint
 
-Reference: `docs/roman-operating-guide.md` for the full operating guide this ritual comes from.
+Reference: `docs/roman-operating-guide.md` for the full operating guide this ritual comes from, and
+`docs/capture-system.md` for how Inbox/Ideas/Open Loops fit together.
+
+## Step 0: process the Inbox
+
+Go through `vault/Inbox.md`'s "Unprocessed" section, item by item. For each entry, decide with Roman:
+
+- Clear actionable task/plan → move into `vault/Open Loops.md` Active, with owner, deadline, and a
+  concrete completion criterion.
+- Interesting but not a commitment yet → move into `vault/Ideas.md`.
+- Reference/knowledge worth keeping → file into the relevant vault note, or create one.
+- No longer relevant → drop it, say so out loud rather than silently deleting.
+
+Move each processed entry to Inbox's "Processed" section, checked off, noting where it went. Don't
+skip this step even if the Inbox is short — an unprocessed Inbox is exactly the kind of open loop this
+ritual exists to close.
+
+## Then: the three questions
 
 Run exactly three questions, in order, against `vault/Open Loops.md`:
 
