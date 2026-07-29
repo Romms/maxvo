@@ -34,6 +34,11 @@ in UTC to keep firing at 08:30/20:30 local — and shift back an hour earlier at
 (typically late March). Check `mcp__Claude_Code_Remote__list_triggers` and adjust with
 `update_trigger` around those dates; there's no automatic DST handling.
 
+**Calendars.** Roman's Google Calendar has a dedicated **"Daily Tasks"** calendar (repurposed from an
+old "Work" calendar) used only for time-blocked task planning (`plan-day` skill) — never for real
+meetings/events, which stay on his primary/Appointments calendars. Resolve its `calendarId` via
+`list_calendars` by name rather than hardcoding the ID, in case it's ever recreated.
+
 ## Continuous improvement
 
 This assistant is expected to get better at its job over time, not just execute each task in
