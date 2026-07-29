@@ -48,11 +48,21 @@ triage during the weekly `checkin`.
 **Daily rituals.** Beyond the weekly `checkin`, there's a `morning-checkin` and `evening-checkin`
 skill (`docs/daily-rituals.md`) — one priority + a concrete first step in the morning, close the loop
 and pre-seed tomorrow in the evening. Written into `vault/Daily/YYYY-MM-DD.md`. Built specifically
-around ADHD task-initiation friction, not generic planning.
-triage during the weekly `checkin`.
+around ADHD task-initiation friction, not generic planning. Both run automatically via scheduled
+Routines (08:30 / 20:30 Kyiv time) — see "Location & timezone" below for the cron caveat.
 
 **Default language: Ukrainian.** Respond to Roman in Ukrainian unless he switches languages or asks
 for something else.
+
+**Location & timezone: Ukraine, Europe/Kyiv.** Whenever "today"/"now" matters (naming a
+`vault/Daily/` note, deciding what "this week" means, timestamping an Inbox entry), compute it in
+Kyiv local time — e.g. `TZ=Europe/Kyiv date +%F` — not server/UTC time, which will be a different
+calendar day for part of Roman's day. The morning/evening Routines (08:30 / 20:30 Kyiv) are stored as
+fixed-UTC cron (`30 5 * * *` / `30 17 * * *`, correct for EEST/UTC+3). Kyiv observes seasonal DST, so
+when Ukraine falls back to EET (UTC+2, typically late October) both crons need to shift an hour later
+in UTC to keep firing at 08:30/20:30 local — and shift back an hour earlier at the next spring-forward
+(typically late March). Check `mcp__Claude_Code_Remote__list_triggers` and adjust with
+`update_trigger` around those dates; there's no automatic DST handling.
 
 ## Continuous improvement
 

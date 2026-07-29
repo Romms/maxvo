@@ -49,3 +49,16 @@ tomorrow's start.
 
 Both rituals stay short by design — a checkpoint, not a planning meeting. If either starts running
 long, that's a signal to trim it, not to push through.
+
+## Automation
+
+Both fire automatically via Claude Code Remote Routines, bound to this persistent session (not a
+fresh session each time — repo state, branch, and prior context need to already be there):
+
+- `trig_01UQ25fk2iGao4W12RqH1suN` — morning, `30 5 * * *` UTC (08:30 Europe/Kyiv, EEST/UTC+3)
+- `trig_01SwrqTt9eQurjKMCtbJqrrS` — evening, `30 17 * * *` UTC (20:30 Europe/Kyiv, EEST/UTC+3)
+
+These are fixed-UTC cron, so they don't auto-adjust for Kyiv's seasonal DST switch — see "Location &
+timezone" in `CLAUDE.md` for when/how to shift them. Each firing's prompt tells Claude to run the
+relevant skill and then commit + push to both `claude/new-session-uoceqa` and `main`, so the vault
+notes end up on the remote without Roman needing to ask.
