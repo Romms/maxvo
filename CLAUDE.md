@@ -79,6 +79,15 @@ are consistent) — not on a timer or mid-task, since `main` is the shared state
 reads. This mirrors how the daily-ritual background loggers already push straight to `main` after
 each small, atomic, complete write (see `docs/daily-rituals.md`).
 
+**Pushing to `main` while checked out on a different branch: use `git push origin HEAD:main`, never
+`git push origin main`.** A session normally works on its own feature branch, but a local `main` ref
+still exists from checkout and goes stale as other sessions push to remote `main` without this
+session ever touching it. Plain `git push origin main` pushes *that stale local `main` branch*, not
+your current commits — it silently targets the wrong ref and fails as a non-fast-forward rejection
+that looks like a real conflict but isn't one. `HEAD:main` sidesteps the stale ref by pushing the
+checked-out commit explicitly, regardless of local branch name or how far behind local `main` has
+drifted.
+
 ## Commands
 
 ```bash
