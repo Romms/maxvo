@@ -5,7 +5,8 @@ tags: [meta]
 # Daily notes
 
 One note per day, named `YYYY-MM-DD.md`, created by the `morning-checkin` and `evening-checkin`
-skills — see `docs/daily-rituals.md`. Structure:
+skills, and updated throughout the day by background logging — see `docs/daily-rituals.md`.
+Structure:
 
 ```markdown
 ## Ранок
@@ -13,6 +14,9 @@ skills — see `docs/daily-rituals.md`. Structure:
 - Перший крок: ...
 - Фіксовані зустрічі: ...
 - Енергія: ...
+
+## Протягом дня
+- HH:MM — коротка суть помітної події/рішення/результату.
 
 ## Вечір
 - Пріоритет виконано: так / частково / ні

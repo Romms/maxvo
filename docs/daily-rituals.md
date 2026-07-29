@@ -1,8 +1,8 @@
-# Daily rituals: morning and evening check-ins
+# Daily rituals: morning/evening check-ins and background logging
 
-Two lightweight daily rituals, on top of the weekly `checkin` and the `capture-system.md` Inbox.
-Designed for Roman's ADHD (combined type) specifically — see `docs/roman-operating-guide.md` for the
-full profile this is built on.
+Two lightweight daily check-in rituals, plus continuous background logging throughout the day, on
+top of the weekly `checkin` and the `capture-system.md` Inbox. Designed for Roman's ADHD (combined
+type) specifically — see `docs/roman-operating-guide.md` for the full profile this is built on.
 
 Why daily, on top of weekly: the weekly checkpoint sets the one priority for the week, but ADHD task
 initiation is a day-by-day (often hour-by-hour) problem. The daily rituals exist to make starting
@@ -11,10 +11,10 @@ easier, not to add more planning overhead.
 ## Where it lives
 
 Each day gets one note: `vault/Daily/YYYY-MM-DD.md`, with a `## Ранок` section written by the
-morning ritual and a `## Вечір` section written by the evening one. The evening ritual pre-seeds the
-next day's note with a draft priority, so the morning ritual starts from something already decided
-instead of a blank page — reducing the number of decisions Roman has to make before he's even started
-the day.
+morning ritual, a `## Протягом дня` section updated continuously in the background, and a `## Вечір`
+section written by the evening one. The evening ritual pre-seeds the next day's note with a draft
+priority, so the morning ritual starts from something already decided instead of a blank page —
+reducing the number of decisions Roman has to make before he's even started the day.
 
 ## Morning: `morning-checkin` skill
 
@@ -49,6 +49,29 @@ tomorrow's start.
 
 Both rituals stay short by design — a checkpoint, not a planning meeting. If either starts running
 long, that's a signal to trim it, not to push through.
+
+## During the day: background logging
+
+Beyond what Roman explicitly shares (that's the Inbox's job, see `capture-system.md`), notable things
+that happen while working together — a decision made, something finished, important context
+surfaced, a plan changing — get logged into today's `## Протягом дня` section as they happen, not
+reconstructed later from memory at the evening check-in.
+
+**This is a side-effect, not the main task**: don't stop and do the write yourself in the middle of
+whatever else is happening. Instead, dispatch it to a separate background agent (`Agent` tool,
+`run_in_background: true`, `isolation: "worktree"` so it doesn't collide with whatever the main
+session's working tree is doing) so the actual work continues without waiting on a
+read-edit-commit-push cycle. Each logging agent:
+
+1. Determines today's date in Kyiv time (`TZ=Europe/Kyiv date +%F`).
+2. Opens (or creates) `vault/Daily/<date>.md` and appends one short bullet under `## Протягом дня` —
+   a timestamp and one sentence, not a transcript of the conversation.
+3. Commits and pushes to both `claude/new-session-uoceqa` and `main`. If the push is rejected because
+   another logging agent pushed in the meantime, `git pull --rebase` once and retry; don't loop
+   beyond one retry.
+
+Don't report back to Roman on every individual log write — it's background bookkeeping, not a
+conversation turn. Only surface it if a write genuinely fails after the retry.
 
 ## Automation
 
