@@ -25,11 +25,23 @@ because starting is the hard part with ADHD, not knowing what to do in the abstr
    glance.
 2. Check `vault/Open Loops.md` Active for anything due today/this week.
 3. Ask for **one** priority for today — if Roman names several, push him to pick one.
-4. Break that priority into a concrete first step small enough to start immediately (not "work on X,"
-   but the actual first action).
+4. Break that priority into a short chain of concrete micro-steps (roughly 3-5), not just the first
+   one. See "Task breakdown" below for why — the same first-step logic applies at every step, not
+   only the start.
 5. Note any fixed commitments (meetings etc.) if not already obvious.
 6. One quick energy/sleep question — fuel-guard, not an interrogation.
 7. Write it all into today's Daily note, give a short direct summary back.
+
+### Task breakdown: why a chain, not just a first step
+
+Breaking a task into micro-steps helps ADHD focus for the whole task, not just getting started: each
+step should be concrete enough to require no further decision to execute. The failure point usually
+isn't the beginning — it's the "what's next?" gap between steps, where attention drifts, focus
+switches to something else, or procrastination creeps back in. A pre-decided chain of small steps
+removes that gap at every transition, not just the first one, and each completed step gives a small
+sense of progress that carries momentum into the next. Apply this whenever breaking down a task for
+Roman — morning-checkin, `plan-day` time blocks, or mid-conversation when he's stuck mid-task — not
+only when a task is starting from zero.
 
 ## Evening: `evening-checkin` skill
 

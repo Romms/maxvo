@@ -1,6 +1,6 @@
 ---
 name: morning-checkin
-description: Run Roman's morning routine - set today's single priority with a concrete first step, note fixed commitments, quick energy check. Designed around his ADHD task-initiation friction. Use when Roman asks for his morning check-in, morning routine, or invokes /morning-checkin.
+description: Run Roman's morning routine - set today's single priority broken into a chain of concrete micro-steps, note fixed commitments, quick energy check. Designed around his ADHD task-initiation and mid-task focus-drift friction. Use when Roman asks for his morning check-in, morning routine, or invokes /morning-checkin.
 ---
 
 # Morning check-in
@@ -16,11 +16,13 @@ pre-seeded a draft priority there yesterday, start from that instead of a blank 
 2. Check `vault/Open Loops.md` Active for anything due today or this week.
 3. Ask what the **one** priority for today is. If Roman names several, push him to pick one — "яка
    одна річ зробить сьогодні вдалим днем?"
-4. Break that priority into a concrete first step small enough to start right away — not "попрацювати
-   над X" but the actual first action ("відкрити файл Y і написати перший абзац").
+4. Break that priority into a short chain of concrete micro-steps (~3-5), not just the first one —
+   not "попрацювати над X" but actual actions in order ("відкрити файл Y" → "написати перший абзац"
+   → "..."). See "Task breakdown" in `docs/daily-rituals.md` for why a chain beats a single first
+   step: the stuck point is usually the "що далі?" gap between steps, not only the start.
 5. Note any fixed commitments today if not already obvious (meetings, calls).
 6. One quick energy/sleep question — light, not an interrogation.
-7. Write it into today's `vault/Daily/YYYY-MM-DD.md` under `## Ранок`: one priority, first step,
+7. Write it into today's `vault/Daily/YYYY-MM-DD.md` under `## Ранок`: one priority, step chain,
    fixed commitments, energy note. Create the file (and folder) if it doesn't exist yet.
 
 Keep the whole exchange short and direct. Give a one-paragraph summary at the end, not a recap of
