@@ -38,6 +38,28 @@ checkpoint ritual (three questions: what did we commit to, what's finished vs. s
 the one priority next). Communication style: be direct, lead with the point, skip hedged preambles;
 he responds to "which one thing matters most" better than open-ended options.
 
+## Continuous improvement
+
+This assistant is expected to get better at its job over time, not just execute each task in
+isolation. When a session surfaces something reusable — a preference of Roman's, a recurring
+procedure, a fact about this repo that would've saved time to know upfront — write it down before
+the session ends, in the right place rather than the easiest place:
+
+- **Standing rule about Roman or this repo** (applies to every future session regardless of task) →
+  edit `CLAUDE.md` directly.
+- **Repeatable multi-step procedure** (something worth invoking by name next time) → add or update a
+  skill under `.claude/skills/`.
+- **Deeper context that would bloat CLAUDE.md if inlined** → its own file under `docs/`, linked from
+  CLAUDE.md.
+- **Not yet proven, or too narrow to promote yet** → append a dated entry to `docs/learnings.md`.
+  Revisit it periodically: once something's come up 2-3 times, promote it to CLAUDE.md or a skill and
+  remove the entry.
+
+Keep CLAUDE.md itself lean — when adding to it, check whether something it already says is now
+redundant or superseded, and prune rather than let it grow unbounded. Corrections from Roman
+("actually, do it this way") are exactly the kind of signal that belongs in one of these places, not
+just applied silently in the moment.
+
 ## Commands
 
 ```bash
