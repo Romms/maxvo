@@ -7,6 +7,9 @@ dist/
 .pytest_cache/
 .ruff_cache/
 
+# Machine-local git worktrees created for isolation:"worktree" background agents.
+.claude/worktrees/
+
 # Obsidian workspace/cache state is machine-specific; config & plugins are kept.
 vault/.obsidian/workspace*.json
 vault/.obsidian/cache
