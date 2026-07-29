@@ -41,10 +41,11 @@ curl -s "https://app.base44.com/api/agents/6a53ec2ca8ddb9dd9657837e/conversation
   -H "api_key: $BASE44_API_KEY"
 ```
 
-Start a new conversation for an unrelated task rather than reusing an old `conversation_id`. Note:
-`POST /conversations` has been observed returning an existing conversation instead of a fresh one —
-see `docs/base44-superagent-api.md` for details and other endpoints (memory, webhooks, template
-cloning) not used by this skill today.
+In practice `POST /conversations` always returns the same single conversation for this API key —
+confirmed by testing, not just observed once — so there's no way to start an isolated thread per
+topic; every call lands in the same ongoing conversation (which is also shared with an existing
+Telegram integration on this Superagent). See `docs/base44-superagent-api.md` for the full writeup
+and other endpoints (memory, webhooks, template cloning) not used by this skill today.
 
 ## What to do with the result
 

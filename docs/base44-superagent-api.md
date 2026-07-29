@@ -18,16 +18,38 @@ auto-triggering skill, unless Roman explicitly asks for that.
 Base URL: `https://app.base44.com/api/agents/6a53ec2ca8ddb9dd9657837e`. Auth: `api_key` header or
 `?api_key=` query string — never commit the actual key, see the Setup section in `work-assistant`.
 
-## Known undocumented behavior: conversation reuse
+## Known behavior: one conversation per API key, not per call
 
-Tested 2026-07-29: `POST /conversations` with body `{}` did **not** create a fresh empty conversation
-— it returned an existing one (with 549 prior messages) instead. Base44's docs, including the full
-API reference, don't mention a parameter to force a new conversation vs. reuse an existing one (no
-`title`, `conversation_type`, or similar on the create call). A Base44 feedback item, ["Superagent
-Conversation Scoping — App Isolation"](https://feedback.base44.com/p/superagent-conversation-scoping-app-isolation),
-requests exactly this isolation and confirms it isn't solved yet — so this looks like current
-platform behavior, not a misconfiguration on our end. If this matters for a given call, check the
-returned conversation's `title`/`messages` before assuming it's fresh.
+Confirmed by direct testing on 2026-07-29 — this is not a misconfiguration on our end, it's how the
+API behaves for this key. `POST /conversations` never creates a new conversation; it always returns
+the single conversation already bound to this API key's identity (`created_by_id:
+6a53ec2ca8ddb9dd9657837f`). Evidence:
+
+- `GET /conversations` returned exactly **one** conversation both before and after ~11 `POST`
+  attempts with varying bodies.
+- None of the following body params changed the result: `title`, `metadata`, `conversation_type`,
+  `user_id`, `external_user_id`, `session_id`, `new: true`, `force_new: true`, `reset: true`. Even a
+  deliberately malformed body (`{"messages": "not-an-array"}`) was silently ignored rather than
+  rejected — the body doesn't appear to be parsed for conversation-creation purposes at all.
+- The `X-Active-Workspace-Id` header (documented for template cloning) had no effect here either.
+- A query string `?new=true` had no effect.
+
+So in practice `POST /conversations` behaves as an idempotent "get-or-create the one conversation for
+this key" rather than "create a new conversation." There is no known parameter, header, or query
+string — documented or guessed — that produces a second conversation for the same key. A Base44
+feedback item, ["Superagent Conversation Scoping — App
+Isolation"](https://feedback.base44.com/p/superagent-conversation-scoping-app-isolation), requests
+exactly this kind of isolation and confirms it isn't solved yet on Base44's side.
+
+**Consequence worth knowing:** the one conversation this key is bound to is not an empty/fresh thread
+— it already had `title: "Using Notion Integration"`, `metadata.analytics_channel: "telegram"`, and
+549 prior messages before any maxvo test traffic touched it (561 after). That strongly suggests this
+key's conversation is shared with an existing Telegram-based integration on the same Superagent —
+every message sent through this skill lands in that same real, ongoing thread, not an isolated one.
+Decided 2026-07-29: leave this as-is (no separate key/workspace requested) — just documented here so
+it's a known property, not a surprise, next time this skill or a debugging session touches it. If
+isolation ever becomes necessary, the next thing to try would be provisioning a distinct API key from
+the Base44 dashboard (untested — may or may not map to a different `created_by_id`/conversation).
 
 ## Create from a shared template
 
