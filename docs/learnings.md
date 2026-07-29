@@ -25,6 +25,19 @@ Update: the routine itself is created — `trig_01Fk4eZ6dxj6DgeH6e5JegQi` ("Го
 Button)"), poke-only (no schedule), `create_new_session_on_fire: true`, prompt already has the full
 triage instructions. `create_trigger` (MCP tool) has no way to attach an "API" trigger / generate a
 bearer token — that's only available from the claude.ai/code/routines web UI ("Add another trigger →
-API → Generate token"). Roman still needs to: (1) open that routine in the web UI and add an API
-trigger to get the token, (2) build the iOS Shortcut (Dictate Text → POST to the fire endpoint with
-the token). Nothing further to do on the repo side.
+API → Generate token"). Roman added the API trigger (confirmed via `api_token_hint` on the trigger).
+
+Update: `create_trigger` also attaches zero MCP connectors by default (explicit warning on creation)
+— unlike routines created from the web UI, which include all connected connectors automatically.
+Fixed by editing the prompt (via `update_trigger`, which I *can* call) to add a step: after filing
+the capture, email a short summary to rommssh@gmail.com via Gmail, so Roman can hear it read aloud
+via iOS "Announce Notifications" on Mail — an approximation of a spoken reply, since the public
+`/fire` API has no synchronous reply and no documented way to poll a fired session's output. Roman
+still needs to, on his side: (1) add the Gmail connector to this specific routine via
+claude.ai/code/routines → edit → Connectors tab (has none currently), (2) enable "Allow unrestricted
+branch pushes" for `romms/maxvo` under the routine's Permissions tab, or fired sessions can likely
+only push `claude/`-prefixed branches, not `main` directly, (3) enable iOS Announce Notifications for
+Mail, reliability unverified (works best with AirPods per general iOS behavior, not confirmed for
+this specific setup), (4) build/finish the iOS Shortcut itself and test it. As of this note, no
+routine run has happened yet (no new commit on `main`, no stray `claude/` branch) — still unverified
+end-to-end. Promote to a proper doc once confirmed working.
