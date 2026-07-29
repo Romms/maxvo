@@ -1,8 +1,8 @@
 # The Person Who Completes Roman — Operating Guide
 
 Source: Roman's CliftonStrengths® full-34 profile analysis, read alongside his ADHD (combined
-type) context. Compiled 12 July 2026. This is the full reference; `CLAUDE.md` carries the condensed
-version Claude Code applies by default.
+type) context. Compiled 12 July 2026. `CLAUDE.md` imports this file directly (`@docs/roman-operating-guide.md`),
+so it's loaded into every session automatically — this is the canonical version, not a duplicate.
 
 CliftonStrengths is a strengths-framework tool, not a clinical instrument. Nothing here is medical
 advice; the ADHD points complement, and don't replace, Roman's clinician's guidance.

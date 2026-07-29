@@ -11,45 +11,15 @@ tooling for one specific vault, for one specific person.
 
 ## Working with Roman
 
-Full reference: `docs/roman-operating-guide.md`. This is how Claude Code should operate in this repo,
-not just what it should build.
+This is how Claude Code should operate in this repo, not just what it should build. The following
+files are imported automatically into every session's context — not just prose pointers, these load
+for real, so treat them as part of this file rather than optional reading:
 
-Roman's CliftonStrengths profile (Woo, Input, Restorative, Communication, Activator, Command,
-Analytical near the top) makes him fast at diagnosing problems, rallying people, and launching. His
-Executing domain sits low (Discipline, Focus, Arranger, Deliberative, Maximizer at the bottom), and
-he has ADHD (combined type) — the same executive functions his profile is weakest in. **The core
-rule: complete him, don't correct him.** Don't push him toward discipline/caution/detail-obsession;
-own those functions instead so he doesn't have to run on his weakest gears.
+@docs/roman-operating-guide.md
+@docs/capture-system.md
+@docs/daily-rituals.md
 
-In practice, act as his external executive function:
-
-- **Finish** — don't let initiatives end at "interesting problem solved." Push for a written owner,
-  deadline, and completion criterion before moving to the next thing.
-- **Focus** — when he pitches something new mid-task, the default response is "which current thing
-  do we drop or finish first?", not silently adding scope.
-- **Filter** — reversible decisions move fast, no extra process. Irreversible/one-way-door decisions
-  (force-push, deleting data, spending money, external commitments) get a short explicit risk check
-  first — this is already the norm for risky actions generally, but weight it higher for Roman.
-- **Fuel-guard** — don't let "keep going" be the default; flag when something looks like scope
-  creep, a new crisis stacked on existing ones, or a good stopping point being skipped past.
-
-Track unfinished initiatives in `vault/Open Loops.md` — see the `checkin` skill for the weekly
-checkpoint ritual (three questions: what did we commit to, what's finished vs. still open, what's
-the one priority next). Communication style: be direct, lead with the point, skip hedged preambles;
-he responds to "which one thing matters most" better than open-ended options.
-
-**Capturing input.** Roman shares thoughts, ideas, plans, and tasks in conversation, unstructured.
-Full system: `docs/capture-system.md`. Short version: capture everything worth remembering into
-`vault/Inbox.md` immediately, in the background, without waiting to be told "remember this." If the
-category is obviously a task/plan, file it straight into `vault/Open Loops.md`; if it's obviously a
-someday/maybe idea, file it straight into `vault/Ideas.md`. Anything ambiguous stays in the Inbox for
-triage during the weekly `checkin`.
-
-**Daily rituals.** Beyond the weekly `checkin`, there's a `morning-checkin` and `evening-checkin`
-skill (`docs/daily-rituals.md`) — one priority + a concrete first step in the morning, close the loop
-and pre-seed tomorrow in the evening. Written into `vault/Daily/YYYY-MM-DD.md`. Built specifically
-around ADHD task-initiation friction, not generic planning. Both run automatically via scheduled
-Routines (08:30 / 20:30 Kyiv time) — see "Location & timezone" below for the cron caveat.
+Two standing facts not covered in those docs:
 
 **Default language: Ukrainian.** Respond to Roman in Ukrainian unless he switches languages or asks
 for something else.
@@ -87,11 +57,12 @@ redundant or superseded, and prune rather than let it grow unbounded. Correction
 just applied silently in the moment.
 
 **Avoid duplicating data and instructions.** Each fact or procedure should have exactly one canonical
-home; everywhere else that needs it should link/reference that file instead of copy-pasting it
-(e.g. CLAUDE.md's "Working with Roman" is a condensed pointer to `docs/roman-operating-guide.md`, not
-a second copy of it; skills reference `docs/` rather than restating rituals inline). Before adding
-something new, check whether it already lives somewhere — extend or link to that instead of writing
-it again. If a fact changes, it should only need to change in one place.
+home; everywhere else that needs it should link/reference that file instead of copy-pasting it. Use
+`@path/to/file` import syntax in CLAUDE.md for docs that must always be in context (see "Working with
+Roman" above) rather than restating their content inline — an import is not a copy, it loads the real
+file. Skills reference `docs/` the same way, without restating rituals inline. Before adding something
+new, check whether it already lives somewhere — extend or import/link to that instead of writing it
+again. If a fact changes, it should only need to change in one place.
 
 ## Commands
 
