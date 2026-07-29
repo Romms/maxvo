@@ -86,6 +86,13 @@ redundant or superseded, and prune rather than let it grow unbounded. Correction
 ("actually, do it this way") are exactly the kind of signal that belongs in one of these places, not
 just applied silently in the moment.
 
+**Avoid duplicating data and instructions.** Each fact or procedure should have exactly one canonical
+home; everywhere else that needs it should link/reference that file instead of copy-pasting it
+(e.g. CLAUDE.md's "Working with Roman" is a condensed pointer to `docs/roman-operating-guide.md`, not
+a second copy of it; skills reference `docs/` rather than restating rituals inline). Before adding
+something new, check whether it already lives somewhere — extend or link to that instead of writing
+it again. If a fact changes, it should only need to change in one place.
+
 ## Commands
 
 ```bash
