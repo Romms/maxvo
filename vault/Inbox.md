@@ -12,7 +12,4 @@ tags: [meta, inbox]
 
 ## Unprocessed
 
-- [ ] 2026-07-29: "optional extra turn appended to the session" (голосове захоплення, 18:41 Kyiv —
-  текст payload не схожий на змістовну диктовку, зафіксовано як є для розбору на чек-іні)
-
 ## Processed
