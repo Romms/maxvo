@@ -92,5 +92,7 @@ maxvo tags                  # list all unique tags (frontmatter `tags:` + inline
     — use this instead of reading `metadata["tags"]` directly, since notes mix both styles.
 - `src/maxvo/cli.py` is a thin `click` CLI (`maxvo` entry point) over `vault.py`. New scripts
   should generally be added as new `@main.command()`s here, built on top of `iter_notes()`.
+- Vault subfolders that need an index/root note (e.g. `vault/Ideas/`, `vault/Daily/`) name it
+  `README.md`, not a file matching the folder name — keep this consistent for any new ones.
 - `vault/.obsidian/workspace*.json` and `.obsidian/cache` are gitignored (machine-specific
   Obsidian UI state); `.obsidian/` config and installed plugins are otherwise kept in the repo.

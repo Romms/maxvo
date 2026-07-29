@@ -18,7 +18,7 @@ Today's note lives at `vault/Daily/YYYY-MM-DD.md` (today's date).
 4. Anything left open: add it to `vault/Open Loops.md` (if it's still a live commitment) or
    `vault/Inbox.md` (if unclear) — never let it silently disappear.
 5. New ideas or urges that came up today but weren't today's priority → `vault/Ideas/` (add a row to
-   `Ideas.md` plus a `YYYY-MM-DD - Title.md` detail file), parked. Do not start them tonight.
+   `README.md` plus a `YYYY-MM-DD - Title.md` detail file), parked. Do not start them tonight.
 6. Ask for tomorrow's likely one priority and write it as a draft into tomorrow's
    `vault/Daily/YYYY-MM-DD.md` (`## Ранок`, marked as draft) — this is what removes the morning's
    blank-page problem.
