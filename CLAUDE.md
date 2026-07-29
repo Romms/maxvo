@@ -64,6 +64,16 @@ file. Skills reference `docs/` the same way, without restating rituals inline. B
 new, check whether it already lives somewhere — extend or import/link to that instead of writing it
 again. If a fact changes, it should only need to change in one place.
 
+## Git workflow
+
+Multiple Claude Code sessions can work on this repo concurrently, each on its own branch — pull
+`main` at the start of a session and again before merging back, so conflicting parallel edits (e.g.
+two sessions touching the same skill file) surface early instead of at push time. Merge a session's
+branch into `main` when its work has reached a stable, finished point (a task/subtask is done, docs
+are consistent) — not on a timer or mid-task, since `main` is the shared state every other session
+reads. This mirrors how the daily-ritual background loggers already push straight to `main` after
+each small, atomic, complete write (see `docs/daily-rituals.md`).
+
 ## Commands
 
 ```bash
