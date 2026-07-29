@@ -11,7 +11,10 @@ finishing) are weak. The assistant owns the filing, not him — see `docs/roman-
   gets written here immediately, verbatim or close to it, with a date. No judgment about where it
   "really" belongs at capture time — the point is nothing gets lost between the conversation and the
   vault.
-- **`vault/Ideas.md`** — someday/maybe backlog. Things that are interesting but not yet a commitment.
+- **`vault/Ideas/`** — someday/maybe backlog. `Ideas.md` is the index (one line per idea: short
+  description, date, status, link); each idea's full detail lives in its own
+  `YYYY-MM-DD - Title.md` file next to it, so browsing the backlog doesn't pull in detail for ideas
+  that aren't currently relevant. Only open the detail file when the idea is actually being acted on.
 - **`vault/Open Loops.md`** — active commitments with an owner, deadline, and completion criterion.
   Existing ritual from the operating guide; unchanged by this system.
 
@@ -29,7 +32,7 @@ double-handling it later:
   Active. Ask for a deadline/completion criterion if Roman didn't give one — don't invent one
   silently.
 - A clearly non-actionable idea/musing he's explicit isn't a commitment → straight into
-  `vault/Ideas.md`.
+  `vault/Ideas/`: add a row to `Ideas.md` and create its `YYYY-MM-DD - Title.md` detail file.
 
 **Everything ambiguous stays in the Inbox** and gets triaged during the weekly `checkin` skill (see
 its "Step 0"), rather than Claude guessing.

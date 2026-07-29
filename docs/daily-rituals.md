@@ -41,7 +41,7 @@ tomorrow's start.
 2. Ask directly: done / partial / not done. No vague answers.
 3. Name what actually got finished today, even if small — say it out loud.
 4. Anything left open goes to `vault/Inbox.md` or `vault/Open Loops.md`, never silently dropped.
-5. New ideas/urges from today that weren't today's priority → `vault/Ideas.md`, parked, not chased
+5. New ideas/urges from today that weren't today's priority → `vault/Ideas/`, parked, not chased
    tonight.
 6. Ask for tomorrow's likely one priority and write it into tomorrow's Daily note in advance.
 7. One quick fuel-guard check: energy, and whether he picked up more "crises" than planned (see the

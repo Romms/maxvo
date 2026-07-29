@@ -14,7 +14,8 @@ Go through `vault/Inbox.md`'s "Unprocessed" section, item by item. For each entr
 
 - Clear actionable task/plan → move into `vault/Open Loops.md` Active, with owner, deadline, and a
   concrete completion criterion.
-- Interesting but not a commitment yet → move into `vault/Ideas.md`.
+- Interesting but not a commitment yet → move into `vault/Ideas/`: add a row to `Ideas.md` and
+  create its `YYYY-MM-DD - Title.md` detail file.
 - Reference/knowledge worth keeping → file into the relevant vault note, or create one.
 - No longer relevant → drop it, say so out loud rather than silently deleting.
 
