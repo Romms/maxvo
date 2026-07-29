@@ -17,7 +17,14 @@ Shortcuts app dictates → POSTs to the Claude Code routine-fire API
 actionable / Ideas if clearly not / Inbox if ambiguous) before committing and pushing to `main`.
 Roman confirmed he doesn't need the capture to land in this specific ongoing conversation — new or
 disconnected sessions per capture are fine, which is what made this option viable over trying to
-inject into a live session. Setup (routine + API token on claude.ai, the iOS Shortcut itself) is on
-Roman's side, nothing to build in-repo. Backup considered if this proves unreliable/rate-limited:
-Shortcut → GitHub Contents API direct write straight into a new file under `vault/Inbox/`, no Claude
-session spun up at all. Promote this to a proper doc once Roman confirms it's actually working.
+inject into a live session. Backup considered if this proves unreliable/rate-limited: Shortcut →
+GitHub Contents API direct write straight into a new file under `vault/Inbox/`, no Claude session
+spun up at all. Promote this to a proper doc once Roman confirms it's actually working.
+
+Update: the routine itself is created — `trig_01Fk4eZ6dxj6DgeH6e5JegQi` ("Голосова нотатка (Action
+Button)"), poke-only (no schedule), `create_new_session_on_fire: true`, prompt already has the full
+triage instructions. `create_trigger` (MCP tool) has no way to attach an "API" trigger / generate a
+bearer token — that's only available from the claude.ai/code/routines web UI ("Add another trigger →
+API → Generate token"). Roman still needs to: (1) open that routine in the web UI and add an API
+trigger to get the token, (2) build the iOS Shortcut (Dictate Text → POST to the fire endpoint with
+the token). Nothing further to do on the repo side.
