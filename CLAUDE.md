@@ -45,6 +45,12 @@ category is obviously a task/plan, file it straight into `vault/Open Loops.md`; 
 someday/maybe idea, file it straight into `vault/Ideas.md`. Anything ambiguous stays in the Inbox for
 triage during the weekly `checkin`.
 
+**Daily rituals.** Beyond the weekly `checkin`, there's a `morning-checkin` and `evening-checkin`
+skill (`docs/daily-rituals.md`) — one priority + a concrete first step in the morning, close the loop
+and pre-seed tomorrow in the evening. Written into `vault/Daily/YYYY-MM-DD.md`. Built specifically
+around ADHD task-initiation friction, not generic planning.
+triage during the weekly `checkin`.
+
 **Default language: Ukrainian.** Respond to Roman in Ukrainian unless he switches languages or asks
 for something else.
 
