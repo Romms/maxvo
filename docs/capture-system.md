@@ -18,7 +18,7 @@ finishing) are weak. The assistant owns the filing, not him — see `docs/roman-
 - **`vault/Open Loops.md`** — active commitments with an owner, deadline, and completion criterion.
   Existing ritual from the operating guide; unchanged by this system.
 
-## When Claude Code should act
+## When the assistant should act
 
 **Capture immediately, always.** The moment Roman shares something worth remembering mid-conversation
 — not just when he explicitly says "remember this" — append it to `vault/Inbox.md` under
@@ -35,7 +35,7 @@ double-handling it later:
   `vault/Ideas/`: add a row to `README.md` and create its `YYYY-MM-DD - Title.md` detail file.
 
 **Everything ambiguous stays in the Inbox** and gets triaged during the weekly `checkin` skill (see
-its "Step 0"), rather than Claude guessing.
+its "Step 0"), rather than the assistant guessing.
 
 ## Why this shape
 

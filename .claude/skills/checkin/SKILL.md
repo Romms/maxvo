@@ -43,7 +43,7 @@ If he pitches something new mid-checkpoint, don't wave it through: "Love it — 
 After the three questions, update `vault/Open Loops.md` directly (Edit tool) and give a one-paragraph
 summary: what closed, what's the one priority, what's parked.
 
-Commit and push to `main`. If the current session's working branch differs from `main` (e.g. this
-persistent session's `claude/new-session-uoceqa`), push to that branch too, to keep them in sync.
+Commit and push to `main`. If the current session's working branch differs from `main`, push to that
+branch too, to keep them in sync.
 
 Keep the whole thing short — this is a checkpoint, not a planning meeting.
