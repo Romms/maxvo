@@ -12,15 +12,14 @@ Don't wire it into any standing ritual on your own initiative.
 
 ## Setup (one-time, not done automatically)
 
-Calls need the `BASE44_API_KEY` environment variable. It must be set at the **Claude Code Remote
+Calls need the `BASE44_API_KEY` environment variable. It must be set at the **assistant runtime
 environment** level (outside this repo) — this repo's container is rebuilt fresh from git each
 session, so a key committed to a file here would either leak into git history or vanish on the next
 session. It should never be written into any file inside this repo.
 
 If `BASE44_API_KEY` isn't set when this skill is invoked, tell Roman and stop — don't ask him to paste
 the raw key into chat again (it's a secret and chat history isn't a safe place for it). Point him to:
-Claude Code environment settings → this environment → environment variables → add `BASE44_API_KEY`.
-See https://code.claude.com/docs/en/claude-code-on-the-web for where that lives.
+the relevant assistant environment settings → environment variables → add `BASE44_API_KEY`.
 
 ## Calling the agent
 

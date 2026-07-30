@@ -26,8 +26,8 @@ pre-seeded a draft priority there yesterday, start from that instead of a blank 
 6. One quick energy/sleep question — light, not an interrogation.
 7. Write it into today's `vault/Daily/YYYY-MM-DD.md` under `## Ранок`: one priority, step chain,
    fixed commitments, energy note. Create the file (and folder) if it doesn't exist yet.
-8. Commit and push to `main`. If the current session's working branch differs from `main` (e.g. this
-   persistent session's `claude/new-session-uoceqa`), push to that branch too, to keep them in sync.
+8. Commit and push to `main`. If the current session's working branch differs from `main`, push to
+   that branch too, to keep them in sync.
 
 Keep the whole exchange short and direct. Give a one-paragraph summary at the end, not a recap of
 every step.

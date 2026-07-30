@@ -1,6 +1,6 @@
 ---
 name: voice-capture
-description: Process a voice-dictated note from Roman that arrived via a Claude Code routine-fire payload (his iPhone Action Button Shortcut). Triages it into the vault per the normal capture system. Capture-only, no reply. Use when a routine fires this for a voice-capture session, or when Roman explicitly asks to process a voice capture.
+description: Process a voice-dictated note from Roman that arrived via an assistant automation payload (his iPhone Action Button Shortcut). Triages it into the vault per the normal capture system. Capture-only, no reply. Use when a routine fires this for a voice-capture session, or when Roman explicitly asks to process a voice capture.
 ---
 
 # Голосова нотатка → vault

@@ -74,31 +74,31 @@ surfaced, a plan changing — get logged into today's `## Протягом дн�
 reconstructed later from memory at the evening check-in.
 
 **This is a side-effect, not the main task**: don't stop and do the write yourself in the middle of
-whatever else is happening. Instead, dispatch it to a separate background agent (`Agent` tool,
-`run_in_background: true`, `isolation: "worktree"` so it doesn't collide with whatever the main
-session's working tree is doing) so the actual work continues without waiting on a
-read-edit-commit-push cycle. Each logging agent:
+whatever else is happening. If the current assistant runtime supports background agents, dispatch the
+write to a separate agent/worktree so it doesn't collide with whatever the main session's working
+tree is doing. If background agents are not available, do the logging inline at a safe stopping point
+so the actual work continues without waiting on a read-edit-commit-push cycle. Each logging pass:
 
 1. Determines today's date in Kyiv time (`TZ=Europe/Kyiv date +%F`).
 2. Opens (or creates) `vault/Daily/<date>.md` and appends one short bullet under `## Протягом дня` —
    a timestamp and one sentence, not a transcript of the conversation.
-3. Commits and pushes to both `claude/new-session-uoceqa` and `main` — push `main` with
-   `git push origin HEAD:main` (not `git push origin main`; see "Git workflow" in `CLAUDE.md` for why
-   the plain form targets the wrong ref). If the push is rejected because another logging agent
-   pushed in the meantime, `git pull --rebase` once and retry; don't loop beyond one retry.
+3. Commits and pushes to the active session branch and `main` — push `main` with `git push origin
+   HEAD:main` (not `git push origin main`; see "Git workflow" in `AGENTS.md` for why the plain form
+   targets the wrong ref). If the push is rejected because another logging pass pushed in the
+   meantime, `git pull --rebase` once and retry; don't loop beyond one retry.
 
 Don't report back to Roman on every individual log write — it's background bookkeeping, not a
 conversation turn. Only surface it if a write genuinely fails after the retry.
 
 ## Automation
 
-Both fire automatically via Claude Code Remote Routines, bound to this persistent session (not a
+Both fire automatically via assistant automation routines, bound to this persistent session (not a
 fresh session each time — repo state, branch, and prior context need to already be there):
 
 - `trig_01UQ25fk2iGao4W12RqH1suN` — morning, `30 5 * * *` UTC (08:30 Europe/Kyiv, EEST/UTC+3)
 - `trig_01SwrqTt9eQurjKMCtbJqrrS` — evening, `30 17 * * *` UTC (20:30 Europe/Kyiv, EEST/UTC+3)
 
 These are fixed-UTC cron, so they don't auto-adjust for Kyiv's seasonal DST switch — see "Location &
-timezone" in `CLAUDE.md` for when/how to shift them. Each firing's prompt tells Claude to run the
-relevant skill and then commit + push to both `claude/new-session-uoceqa` and `main`, so the vault
-notes end up on the remote without Roman needing to ask.
+timezone" in `AGENTS.md` for when/how to shift them. Each firing's prompt tells the assistant to run
+the relevant skill/procedure and then commit + push to the active session branch and `main`, so the
+vault notes end up on the remote without Roman needing to ask.
