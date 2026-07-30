@@ -17,7 +17,7 @@ description: Record a new blood pressure reading in vault/Blood Pressure.md - da
 3. Коротко запитати про самопочуття, якщо Роман сам не сказав — не лишати це поле порожнім мовчки.
 4. Додати новий рядок унизу таблиці в `vault/Blood Pressure.md` (найновіші внизу, формат рядка як у
    вже наявних записах).
-5. Закомітити і запушити (`claude/new-session-uoceqa` і `main`), як завжди для vault-файлів.
+5. Закомітити і запушити в активну session branch і `main`, як завжди для vault-файлів.
 
 ## Чого не робити
 
