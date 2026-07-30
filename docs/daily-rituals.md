@@ -23,7 +23,11 @@ because starting is the hard part with ADHD, not knowing what to do in the abstr
 
 1. Quick skim of `vault/Inbox.md` for anything urgent from overnight — not a full triage, just a
    glance.
-2. Check `vault/Open Loops.md` Active for anything due today/this week.
+2. Check `vault/Open Loops.md` Active for anything due today/this week — **and separately list every
+   row with an "уточнити" (unclear) deadline**. Those never match a date filter, so they silently
+   never come up again once created unless something explicitly re-surfaces them; don't let "no
+   deadline yet" become "never mentioned again." Surfacing them isn't the same as resolving them —
+   just make sure Roman sees the list.
 3. Ask for **one** priority for today — if Roman names several, push him to pick one.
 4. Break that priority into a short chain of concrete micro-steps (roughly 3-5), not just the first
    one. See "Task breakdown" below for why — the same first-step logic applies at every step, not

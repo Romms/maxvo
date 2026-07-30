@@ -13,7 +13,9 @@ pre-seeded a draft priority there yesterday, start from that instead of a blank 
 
 1. Skim `vault/Inbox.md` "Unprocessed" for anything time-sensitive from overnight — not a full
    triage, just a glance. Full triage happens at the weekly `checkin`.
-2. Check `vault/Open Loops.md` Active for anything due today or this week.
+2. Check `vault/Open Loops.md` Active for anything due today or this week, **and list every row with
+   an "уточнити" deadline too** — see `docs/daily-rituals.md` for why those need surfacing on their
+   own, not just date-matched rows.
 3. Ask what the **one** priority for today is. If Roman names several, push him to pick one — "яка
    одна річ зробить сьогодні вдалим днем?"
 4. Break that priority into a short chain of concrete micro-steps (~3-5), not just the first one —
