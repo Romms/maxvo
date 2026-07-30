@@ -82,7 +82,7 @@ read-edit-commit-push cycle. Each logging agent:
 1. Determines today's date in Kyiv time (`TZ=Europe/Kyiv date +%F`).
 2. Opens (or creates) `vault/Daily/<date>.md` and appends one short bullet under `## Протягом дня` —
    a timestamp and one sentence, not a transcript of the conversation.
-3. Commits and pushes to both `claude/new-session-uoceqa` and `main` — push `main` with
+3. Commits and pushes to both the active session branch and `main` — push `main` with
    `git push origin HEAD:main` (not `git push origin main`; see "Git workflow" in `CLAUDE.md` for why
    the plain form targets the wrong ref). If the push is rejected because another logging agent
    pushed in the meantime, `git pull --rebase` once and retry; don't loop beyond one retry.
@@ -100,5 +100,5 @@ fresh session each time — repo state, branch, and prior context need to alread
 
 These are fixed-UTC cron, so they don't auto-adjust for Kyiv's seasonal DST switch — see "Location &
 timezone" in `CLAUDE.md` for when/how to shift them. Each firing's prompt tells Claude to run the
-relevant skill and then commit + push to both `claude/new-session-uoceqa` and `main`, so the vault
+relevant skill and then commit + push to both the active session branch and `main`, so the vault
 notes end up on the remote without Roman needing to ask.

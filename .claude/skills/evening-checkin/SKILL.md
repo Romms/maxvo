@@ -25,7 +25,7 @@ Today's note lives at `vault/Daily/YYYY-MM-DD.md` (today's date).
 7. One quick fuel-guard question: energy/sleep, and whether he picked up more "crises" than the one
    he planned for (see the guardrails table in the operating guide) — note it, don't lecture.
 8. Write everything into today's note under `## Вечір`.
-9. Commit and push to `main`. If the current session's working branch differs from `main` (e.g. this
-   persistent session's `claude/new-session-uoceqa`), push to that branch too, to keep them in sync.
+9. Commit and push to `main`. If the current session's working branch differs from `main`, push to
+   that branch too, to keep them in sync.
 
 Keep it short — a checkpoint, not a debrief. One-paragraph summary at the end.
