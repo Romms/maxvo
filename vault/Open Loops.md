@@ -7,6 +7,11 @@ tags: [meta, open-loops]
 Every started-but-unfinished initiative goes here. Nothing new starts until something on this list
 is finished or deliberately dropped — see `docs/roman-operating-guide.md`.
 
+**Presenting these to Roman** (any check-in — weekly, morning, evening): always as a list, one item
+per line, each with its deadline and completion criterion — not a condensed prose summary that
+collapses several items into one sentence. He needs to see each item to act on it; a summary hides
+exactly the details ("who", "by when") that make it actionable.
+
 ## Active
 
 | Initiative | Owner | Deadline | Completion criterion | Check-in |
