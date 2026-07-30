@@ -28,7 +28,9 @@ ritual exists to close.
 Run exactly three questions, in order, against `vault/Open Loops.md`:
 
 1. **What did we commit to last week?** Read the Active table in `vault/Open Loops.md` — that list is
-   the source of truth, not memory. Read it back to Roman.
+   the source of truth, not memory. Read it back to Roman as a list, one item per line with deadline
+   and completion criterion (see the presentation note at the top of `Open Loops.md`) — not a
+   condensed summary.
 2. **What's actually finished vs. still open?** For each active row, ask directly. Finished rows move
    to "Recently closed" with the outcome. Rows he wants to abandon move there too, marked dropped —
    don't let them linger silently. Anything genuinely still in flight stays in Active, but push for a

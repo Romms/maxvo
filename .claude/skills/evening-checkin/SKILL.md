@@ -11,8 +11,11 @@ profile this is built on. Respond in Ukrainian (default language).
 Today's note lives at `vault/Daily/YYYY-MM-DD.md` (today's date).
 
 1. Open today's Daily note and find the `## Ранок` priority (if there is no morning entry today,
-   just ask what he was aiming for).
-2. Ask directly: done, partial, or not done. Push for a real answer, not "ще працюю над цим."
+   just ask what he was aiming for). Also check `vault/Open Loops.md` Active for anything dated
+   today — list it as its own line with deadline and completion criterion (see the presentation note
+   at the top of `Open Loops.md`), not condensed into one sentence.
+2. Ask directly, per item: done, partial, or not done. Push for a real answer, not "ще працюю над
+   цим."
 3. Name what actually got finished today, even something small — say it out loud, don't just move
    past it.
 4. Anything left open: add it to `vault/Open Loops.md` (if it's still a live commitment) or
