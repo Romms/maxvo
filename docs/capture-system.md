@@ -37,6 +37,16 @@ double-handling it later:
 **Everything ambiguous stays in the Inbox** and gets triaged during the weekly `checkin` skill (see
 its "Step 0"), rather than Claude guessing.
 
+**Relative dates said late at night are ambiguous — don't resolve them confidently.** "Завтра"
+("tomorrow") said at, say, 01:37 could mean the calendar day that just started a little while ago
+(a few hours away) or the one after it (once he's actually slept) — Roman himself may not be
+distinguishing the two in the moment. Roughly midnight–06:00 Kyiv is the risk window. In an
+interactive skill (`checkin`, `morning-checkin`, `evening-checkin`), just ask him which he means —
+cheap to resolve on the spot. In a one-shot skill with no back-and-forth (`voice-capture`), don't
+guess: record the relative word as said plus the capture timestamp, and flag the date explicitly as
+needing confirmation (e.g. "'завтра' сказано о 01:37 — може бути пт 31.07 чи сб 01.08, уточнити")
+instead of writing a single resolved date as if it were certain.
+
 ## Why this shape
 
 This mirrors the "finish before you start" and "own the last 20%" rules from the operating guide:
