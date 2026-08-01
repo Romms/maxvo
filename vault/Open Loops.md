@@ -12,6 +12,13 @@ per line, each with its deadline and completion criterion — not a condensed pr
 collapses several items into one sentence. He needs to see each item to act on it; a summary hides
 exactly the details ("who", "by when") that make it actionable.
 
+**Steps for one specific complex task** (internal stages of a single item — not today's-priority
+execution steps, which go in the Daily note, and not prep-steps for a future commitment, which each
+get their own Open Loops row): write "Кроки: 1) ... 2) ... 3) ..." directly in that row's Initiative
+cell, next to the description. Only for items that actually need it — most rows are a single action
+and don't. If a task is complex enough that inline steps get unwieldy, give it its own detail file
+the way `vault/Ideas/` does (`YYYY-MM-DD - Title.md`) and link to it from the row instead.
+
 ## Active
 
 | Initiative | Owner | Deadline | Completion criterion | Check-in |
