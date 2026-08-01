@@ -37,6 +37,17 @@ double-handling it later:
 **Everything ambiguous stays in the Inbox** and gets triaged during the weekly `checkin` skill (see
 its "Step 0"), rather than Claude guessing.
 
+**Future commitments need their prep steps captured too, not just the commitment itself.** Roman
+procrastinates on things unless they're broken into small, concrete steps — and for a
+future-dated plan, some of those steps are things to prepare *in advance*, not on the day itself.
+"Піти в зал у понеділок" rarely happens on its own; it happens if "купити абонемент," "зібрати
+спортивний одяг," "домовитися з тренером," or even just "поставити нагадування" got done
+beforehand. When a new Open Loop is a future commitment (not something to do right now), ask what
+needs to happen beforehand to make it actually happen — don't invent the list, ask Roman — and add
+each answer as its own Open Loop item with a deadline earlier than the commitment itself. This is
+the same principle as the "Task breakdown" chain in `docs/daily-rituals.md`, applied to preparation
+for a future event instead of execution of today's priority.
+
 **Relative dates said late at night are ambiguous — don't resolve them confidently.** "Завтра"
 ("tomorrow") said at, say, 01:37 could mean the calendar day that just started a little while ago
 (a few hours away) or the one after it (once he's actually slept) — Roman himself may not be
