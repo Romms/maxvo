@@ -36,8 +36,11 @@ in UTC to keep firing at 08:30/20:30 local — and shift back an hour earlier at
 
 **Calendars.** Roman's Google Calendar has a dedicated **"Daily Tasks"** calendar (repurposed from an
 old "Work" calendar) used only for time-blocked task planning (`plan-day` skill) — never for real
-meetings/events, which stay on his primary/Appointments calendars. Resolve its `calendarId` via
-`list_calendars` by name rather than hardcoding the ID, in case it's ever recreated.
+meetings/events, which stay on his primary/Appointments calendars. He also has **"Важливі Дати (+ Дні
+народження)"** — dedicated to yearly-recurring events (birthdays, anniversaries): all-day,
+`RRULE:FREQ=YEARLY`, a 7-day-before popup reminder is the established default (see the Mark/Ustym
+birthday events for the pattern). Resolve calendar IDs via `list_calendars` by name rather than
+hardcoding them, in case they're ever recreated.
 
 ## Continuous improvement
 
