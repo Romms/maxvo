@@ -51,9 +51,8 @@ and other endpoints (memory, webhooks, template cloning) not used by this skill 
 
 Report the assistant's reply back to Roman directly, in Ukrainian. If the exchange surfaces a new work
 task or commitment worth tracking, follow the normal capture flow (`docs/capture-system.md`): clearly
-actionable items go straight to `vault/Open Loops.md` Active (with owner/deadline/completion
-criterion) or `vault/Ideas/` (add a row to `README.md` plus a `YYYY-MM-DD - Title.md` detail file) if
-explicitly not a commitment; anything ambiguous goes to `vault/Inbox.md` Unprocessed for the weekly
-triage.
+actionable items go straight to `vault/Projects/README.md` Активні (with owner/deadline/completion
+criterion) or Ідеї (plus a `YYYY-MM-DD - Title.md` detail file) if explicitly not a commitment;
+anything ambiguous goes to `vault/Inbox.md` Unprocessed for the weekly triage.
 
 Never print, log, or write the raw `BASE44_API_KEY` value anywhere, including into vault notes.

@@ -6,16 +6,16 @@ description: Run Roman's weekly checkpoint ritual - review last week's commitmen
 # Weekly checkpoint
 
 Reference: `docs/roman-operating-guide.md` for the full operating guide this ritual comes from, and
-`docs/capture-system.md` for how Inbox/Ideas/Open Loops fit together.
+`docs/capture-system.md` for how Inbox/Projects fit together.
 
 ## Step 0: process the Inbox
 
 Go through `vault/Inbox.md`'s "Unprocessed" section, item by item. For each entry, decide with Roman:
 
-- Clear actionable task/plan → move into `vault/Open Loops.md` Active, with owner, deadline, and a
-  concrete completion criterion.
-- Interesting but not a commitment yet → move into `vault/Ideas/`: add a row to `README.md` and
-  create its `YYYY-MM-DD - Title.md` detail file.
+- Clear actionable task/plan → move into `vault/Projects/README.md` Активні, with owner, deadline,
+  and a concrete completion criterion.
+- Interesting but not a commitment yet → move into `vault/Projects/README.md` Ідеї, plus its
+  `YYYY-MM-DD - Title.md` detail file.
 - Reference/knowledge worth keeping → file into the relevant vault note, or create one.
 - No longer relevant → drop it, say so out loud rather than silently deleting.
 
@@ -25,25 +25,29 @@ ritual exists to close.
 
 ## Then: the three questions
 
-Run exactly three questions, in order, against `vault/Open Loops.md`:
+Run exactly three questions, in order, against `vault/Projects/README.md`:
 
-1. **What did we commit to last week?** Read the Active table in `vault/Open Loops.md` — that list is
-   the source of truth, not memory. Read it back to Roman as a list, one item per line with deadline
-   and completion criterion (see the presentation note at the top of `Open Loops.md`) — not a
-   condensed summary.
+1. **What did we commit to last week?** Read the Активні table — that list is the source of truth,
+   not memory. Read it back to Roman as a list, one item per line with deadline and completion
+   criterion (see the presentation note at the top of `Projects/README.md`) — not a condensed
+   summary.
 2. **What's actually finished vs. still open?** For each active row, ask directly. Finished rows move
-   to "Recently closed" with the outcome. Rows he wants to abandon move there too, marked dropped —
-   don't let them linger silently. Anything genuinely still in flight stays in Active, but push for a
-   real answer rather than a vague "still working on it."
-3. **What is *the one* priority for next week?** Singular — if he names more than one, ask him to pick.
-   Add/update that row in Active with an owner, deadline, and a concrete completion criterion (not
-   "make progress on X" — a criterion someone else could check).
+   to Завершено with the outcome. Rows he wants to abandon move there too, marked dropped — don't let
+   them linger silently. Anything genuinely still in flight stays in Активні, but push for a real
+   answer rather than a vague "still working on it."
+3. **What is *the one* priority for next week?** Singular — if he names more than one, ask him to
+   pick. Add/update that row in Активні with an owner, deadline, and a concrete completion criterion
+   (not "make progress on X" — a criterion someone else could check).
+
+Also skim Ідеї once: anything become relevant enough to actually commit to? If so, move it to Активні
+(with owner/deadline/completion criterion, same as any new commitment) — this is the only "promotion"
+an idea gets. Otherwise leave it; someday/maybe doesn't need re-litigating every week.
 
 If he pitches something new mid-checkpoint, don't wave it through: "Love it — on the list. Starts when
-[current priority] finishes." Add it to the Parked table, not Active.
+[current priority] finishes." Add it to На паузі, not Активні.
 
-After the three questions, update `vault/Open Loops.md` directly (Edit tool) and give a one-paragraph
-summary: what closed, what's the one priority, what's parked.
+After the three questions, update `vault/Projects/README.md` directly (Edit tool) and give a
+one-paragraph summary: what closed, what's the one priority, what's parked.
 
 Commit and push to `main`. If the current session's working branch differs from `main`, push to that
 branch too, to keep them in sync.

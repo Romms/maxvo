@@ -8,7 +8,7 @@ tags: [meta, inbox]
 під час щотижневого чек-іну (`checkin` skill) або одразу, якщо категорія очевидна.
 
 Формат запису: `- [ ] YYYY-MM-DD: текст`. Після розбору — відмітити `[x]` і дописати куди пішло
-(`-> Open Loops` / `-> Ideas` / `-> vault/<note>` / `-> dropped`).
+(`-> Projects: Активні` / `-> Projects: Ідеї` / `-> vault/<note>` / `-> dropped`).
 
 ## Unprocessed
 

@@ -8,13 +8,30 @@ promote it into `CLAUDE.md` or a skill (see "Continuous improvement" there) and 
 Roman prefers X over Y when Z. (context: what prompted this)
 -->
 
+## 2026-08-02
+Compiled `docs/ai-assistant-best-practices.md` — research across five angles (Anthropic/Claude Code
+official guidance, general agent architecture, PKM methodology + Obsidian/AI tools, memory
+architecture, ADHD-specific assistive design) on how to build AI personal assistants well. Not yet
+matched against maxvo — that comparison pass (what's already covered vs. what's a real gap) is
+tracked as an Активні row in `vault/Projects/README.md` now, not just this pointer. Not
+`@`-imported into `CLAUDE.md`: it's reference material for that follow-up, not something every
+session needs loaded.
+
+While scoping that follow-up, Roman pointed out `vault/Ideas/` and the "initiative" concept I'd
+proposed for `docs/` were really the same thing — a project, just a different status. Unified
+`vault/Ideas/` + `vault/Open Loops.md` (which itself had a redundant Parked/Recently-closed
+mechanism overlapping Ideas) into `vault/Projects/README.md`: one index, sectioned by status
+(Активні/Ідеї/На паузі/Завершено), row moves between sections instead of three separate
+systems/columns duplicating the same status. Already promoted into `capture-system.md`, `CLAUDE.md`,
+and the skills — not a "not yet proven" item, just noting why the shape changed.
+
 ## 2026-07-29
 Voice-capture via iPhone 17 Pro Action Button — capture-only, no reply/email (Roman explicitly
 dropped that scope for now, keep it simple). Roman holds the Action Button → Shortcuts app dictates →
 POSTs to the Claude Code routine-fire API (`api.anthropic.com/v1/claude_code/routines/{id}/fire`,
 experimental/beta). Each fire spins up a *new* one-off Claude Code session that clones `romms/maxvo`,
-picks up CLAUDE.md's @imports automatically, and runs the `voice-capture` skill (triages into Open
-Loops/Ideas/Inbox per `docs/capture-system.md`, commits, pushes to `main`, ends — no reply needed).
+picks up CLAUDE.md's @imports automatically, and runs the `voice-capture` skill (triages into
+Projects/Inbox per `docs/capture-system.md`, commits, pushes to `main`, ends — no reply needed).
 Routine: `trig_01Fk4eZ6dxj6DgeH6e5JegQi` ("Голосова нотатка (Action Button)"), poke-only, prompt is
 just "run skill voice-capture" (routine prompts for all three voice/daily routines now just invoke a
 skill instead of duplicating the ritual steps inline — single source of truth in the repo).
