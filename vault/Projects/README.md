@@ -21,9 +21,10 @@ get their own row here): write "Кроки: 1) ... 2) ... 3) ..." directly in th
 next to the description. Only for items that actually need it — most rows are a single action and
 don't. If a task is complex enough that inline steps get unwieldy, give it its own detail file (or,
 for something with multiple supporting documents, its own folder) — `YYYY-MM-DD - Title.md` or
-`YYYY-MM-DD - Title/` next to this file — and link it from the row's **Деталі** column instead. That
-column can also point straight at a `docs/` file when the deeper material is engineering reference
-rather than vault content.
+`YYYY-MM-DD - Title/` next to this file — and link it from the row's **Деталі** column instead. If a
+project is Roman's, its detail lives here even when the content is technical (research notes,
+comparisons) — `docs/` is for documentation about how the repo/tooling itself works, not a place to
+park project detail just because it reads as engineering material.
 
 ## Активні
 
@@ -43,7 +44,7 @@ Committed, in progress. Nothing new starts here until something is finished or d
 | Пожартувати в чаті жартом про те, що колись не було палива тому було так популярне (голосова нотатка нд 02.08 18:15) | Роман | нд 02.08 ввечері | Жарт написано в чаті | нд 02.08 ввечері | |
 | Заїхати в Житомирі до сестри Олесі — забрати картоплю чи щось інше, що треба передати сестрі в Києві (голосова нотатка нд 02.08 18:15) | Роман | нд 02.08 ввечері | Заїхав до Олесі, забрав речі для передачі в Київ | нд 02.08 ввечері | |
 | Перевірити дату минулорічного медогляду (десь рік тому) і поставити в календар нагадування пройти медогляд цього року (голосова нотатка нд 02.08 18:15) | Роман | уточнити | Дату минулого медогляду перевірено, нагадування в календарі поставлено | уточнити | |
-| Узгодити архітектуру асистента (skills/docs/vault) з дослідженням best practices для AI-асистентів — порівняти, що вже покрито, що є справжньою прогалиною | Клод | уточнити | Порівняння "вже реалізовано" vs "справжні прогалини" складено і показано Роману | уточнити | [[ai-assistant-best-practices]] |
+| Узгодити архітектуру асистента (skills/docs/vault) з дослідженням best practices для AI-асистентів — порівняти, що вже покрито, що є справжньою прогалиною | Клод | уточнити | Порівняння "вже реалізовано" vs "справжні прогалини" складено і показано Роману | уточнити | [[2026-08-02 - AI assistant best practices]] |
 
 Маршрут (оновлено ст 29.07 ввечері): поїздка в середу-четвер скасована — тато сам дістанеться до
 Києва (домовлено з сестрою Наталею), а зустріч із подругою (виписка) й так планувалась на суботу.

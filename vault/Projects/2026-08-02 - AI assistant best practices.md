@@ -1,9 +1,14 @@
+---
+tags: [projects]
+date: 2026-08-02
+---
+
 # AI Personal Assistant Best Practices — Research Notes
 
 Compiled 2026-08-02, via parallel research across five angles. This is raw research material, not
-yet matched against what maxvo does or doesn't do — that's a follow-up pass (see `docs/learnings.md`
-for the pointer). Not `@`-imported into `CLAUDE.md`: it's a one-time reference for that follow-up
-work, not something every session needs loaded.
+yet matched against what maxvo does or doesn't do — that's the open Активні row in
+`vault/Projects/README.md` this file is linked from. Not `@`-imported into `CLAUDE.md`: it's
+reference material for that follow-up, not something every session needs loaded.
 
 ## Anthropic / Claude Code official
 

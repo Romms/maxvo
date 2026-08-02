@@ -9,13 +9,13 @@ Roman prefers X over Y when Z. (context: what prompted this)
 -->
 
 ## 2026-08-02
-Compiled `docs/ai-assistant-best-practices.md` — research across five angles (Anthropic/Claude Code
+Compiled research on AI personal assistant best practices — five angles (Anthropic/Claude Code
 official guidance, general agent architecture, PKM methodology + Obsidian/AI tools, memory
-architecture, ADHD-specific assistive design) on how to build AI personal assistants well. Not yet
-matched against maxvo — that comparison pass (what's already covered vs. what's a real gap) is
-tracked as an Активні row in `vault/Projects/README.md` now, not just this pointer. Not
-`@`-imported into `CLAUDE.md`: it's reference material for that follow-up, not something every
-session needs loaded.
+architecture, ADHD-specific assistive design). Lives at
+`vault/Projects/2026-08-02 - AI assistant best practices.md` — it's one of our projects, not
+engineering-only reference, so it belongs in `vault/Projects/` like any other project detail file
+(moved there from `docs/`, where it first landed). Tracked as an Активні row in
+`vault/Projects/README.md`; comparison against what maxvo already does is still open.
 
 While scoping that follow-up, Roman pointed out `vault/Ideas/` and the "initiative" concept I'd
 proposed for `docs/` were really the same thing — a project, just a different status. Unified
