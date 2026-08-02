@@ -37,6 +37,43 @@ double-handling it later:
 **Everything ambiguous stays in the Inbox** and gets triaged during the weekly `checkin` skill (see
 its "Step 0"), rather than Claude guessing.
 
+**Future commitments need their prep steps captured too, not just the commitment itself.** Roman
+procrastinates on things unless they're broken into small, concrete steps — and for a
+future-dated plan, some of those steps are things to prepare *in advance*, not on the day itself.
+"Піти в зал у понеділок" rarely happens on its own; it happens if "купити абонемент," "зібрати
+спортивний одяг," "домовитися з тренером," or even just "поставити нагадування" got done
+beforehand. When a new Open Loop is a future commitment (not something to do right now), ask what
+needs to happen beforehand to make it actually happen — don't invent the list, ask Roman — and add
+each answer as its own Open Loop item with a deadline earlier than the commitment itself. This is
+the same principle as the "Task breakdown" chain in `docs/daily-rituals.md`, applied to preparation
+for a future event instead of execution of today's priority.
+
+**Completion criteria need to be verifiable, not tautological.** The test: could someone with no
+context read only the criterion and answer yes/no about whether it's done? A criterion that just
+restates the task with "done" tacked on fails this test and is worthless — Roman named the exact
+failure pattern to avoid: "задача: зробити щось, критерій: щось зроблено." That's not a check, it's
+an echo.
+
+- Bad (process, not outcome): "Попрацювати над X," "Розібратися з Х," "Подумати про Y" — describes an
+  activity, not a state that can be confirmed afterward.
+- Good (observable, specific): "Рюкзак відправлено," "Готівку знято," "MCP налаштовано, події
+  створюються без permission prompt" (names the actual observable behavior, not just "installed"),
+  "Довідка написана й показана Роману" (two parts — catches the gap where something gets written but
+  never actually shown to him).
+- Watch for the trap of a criterion that only captures the first step, not the real finish — e.g.
+  "написати Руслану" sounds done the moment a message is sent, but what actually matters is "Руслан
+  підтвердив, що задача розблокована." Ask what changes in the world when this is *actually* over,
+  not just when Roman's part of it is done.
+- For a trigger → result shaped task, Given-When-Then works well: Given [context], When [action],
+  Then [one specific, observable result] — "Then it works" is not a criterion, "Then X" (a concrete,
+  checkable fact) is.
+- For a task with several independent conditions, a checklist works better than a single sentence
+  (the Obsidian-mobile item is the existing example: plugin installed *and* configured *and*
+  auto-pushing).
+- If Roman doesn't have enough detail yet to write a real criterion, don't force one — write "критерій
+  ще не визначено" plus what's missing to define it, and revisit once that detail exists. A fake
+  criterion is worse than an honest placeholder.
+
 **Relative dates said late at night are ambiguous — don't resolve them confidently.** "Завтра"
 ("tomorrow") said at, say, 01:37 could mean the calendar day that just started a little while ago
 (a few hours away) or the one after it (once he's actually slept) — Roman himself may not be
