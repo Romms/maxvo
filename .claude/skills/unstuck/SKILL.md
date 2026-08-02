@@ -3,7 +3,7 @@ name: unstuck
 description: Help Roman break a rumination loop - repeating the same worry/doubt/plan without resolution, burning energy with no result ("товчу в ступі"). Use when he describes going in circles over the same thought, expresses a worry/doubt/anxious plan repeatedly, or explicitly asks for help with this or invokes /unstuck. Not for normal task planning (see plan-day) or task capture (see capture-system.md) - specifically for circular non-productive worry.
 ---
 
-# Розірвати цикл (worry loop)
+# Break the cycle (worry loop)
 
 This is a structural self-help tool, not therapy — same framing as `docs/roman-operating-guide.md`
 (ADHD points complement, don't replace, Roman's clinician's guidance). Don't run a therapy session;
@@ -19,48 +19,51 @@ Grounded in (context, don't recite this to Roman each time):
 - ADHD-specific: rumination eases with movement/stimulation, not with more discussion or reassurance
   — "talking it through again" usually feeds the loop rather than closing it.
 
-## Тригер
+## Trigger
 
-Роман каже щось на кшталт "я знову про це думаю", "товчу в ступі", "не можу відпустити", або
-повторює той самий сумнів/план/переживання не вперше за розмову чи за кілька днів. Звертай увагу сам,
-якщо та сама тема зринає повторно — не чекай поки він сам назве це румінацією.
+Roman says something like "я знову про це думаю", "товчу в ступі", "не можу відпустити", or repeats
+the same doubt/plan/worry more than once in a conversation or over several days. Pay attention
+yourself if the same topic resurfaces — don't wait for him to name it as rumination himself.
 
-## Крок 1: назви коротко
+## Step 1: name it briefly
 
-Одне речення, що саме крутиться — не переказ на абзац. Мета вже тут: назвати думку трохи знижує
-захопленість нею (defusion), заглиблюватись у деталі поки не треба.
+One sentence, what exactly is looping — not a paragraph retelling. The goal here already: naming the
+thought slightly reduces fusion with it (defusion); no need to dig into details yet.
 
-## Крок 2: worry tree
+## Step 2: worry tree
 
-Одне пряме питання: **"Це щось, на що ти можеш реально вплинути зараз, чи це гіпотетичне
+One direct question: **"Це щось, на що ти можеш реально вплинути зараз, чи це гіпотетичне
 переживання?"**
 
-**Якщо актуальне (є реальна дія):**
-- Витягнути конкретний план: хто/що/коли/де/як — не "розібратись з X", а перша дія і коли вона буде.
-- Записати в `vault/Projects/README.md` Активні (якщо це задача) або призначити конкретний час
-  рішення/розмови. "Коли" з цього кроку — заодно й `Check-in` для рядка: створити `Нагадування`
-  calendar event на цей момент (`docs/capture-system.md`), а не тільки записати дату в таблицю.
-- Сказати прямо: "План записано на [коли]. Думати про це до того часу немає сенсу — мозок тримає
+**If actionable (there's a real action):**
+- Extract a concrete plan: who/what/when/where/how — not "розібратись з X," but the first action and
+  when it happens.
+- Write it into `vault/Projects/README.md` Активні (if it's a task) or set a concrete time for the
+  decision/conversation. The "коли" from this step doubles as `Check-in` for the row — create a
+  `Нагадування` calendar event for that moment (`docs/capture-system.md`), not just a date in the
+  table.
+- Say directly: "План записано на [коли]. Думати про це до того часу немає сенсу — мозок тримає
   думку активною, поки не бачить плану, а тепер бачить."
-- Не тягнути обговорення довше, ніж треба для плану — саме "ще трохи поговорити" підживлює цикл.
+- Don't drag the discussion out longer than the plan needs — "ще трохи поговорити" is exactly what
+  feeds the loop.
 
-**Якщо гіпотетичне (дії зараз немає):**
-- Прямо назвати: "Зараз з цим нічого зробити не можна — це саме те, що варто відпустити, а не
+**If hypothetical (no action available now):**
+- Say directly: "Зараз з цим нічого зробити не можна — це саме те, що варто відпустити, а не
   продумувати."
-- Не заспокоювати ("все буде добре") — запропонувати конкретне фізичне переключення на 5 хв (рух,
-  зміна діяльності), а не подальшу розмову: румінація стихає від стимуляції, не від обговорення.
-- Якщо ця сама тема повертається втретє — це не провал техніки, а сигнал, що тут щось реально
-  нерозв'язане. Назви це вголос, за потреби — guardrails/crisis-логіка з
+- Don't reassure ("все буде добре") — propose a concrete physical switch for 5 minutes (movement,
+  change of activity) instead of more talk: rumination eases from stimulation, not discussion.
+- If the same topic comes back a third time — that's not a technique failure, it's a signal something
+  here is genuinely unresolved. Name it out loud; if needed, the guardrails/crisis logic from
   `docs/roman-operating-guide.md`.
 
-## Патерни, що повторюються
+## Recurring patterns
 
-Якщо один і той самий сумнів/переживання зринув втретє — зафіксувати рядком у `vault/Inbox.md`
-("N-й раз повертається: <суть>") для розбору на щотижневому `checkin`, а не тільки гасити симптом
-щоразу заново.
+If the same doubt/worry has surfaced a third time — log it as a line in `vault/Inbox.md`
+("N-й раз повертається: <суть>") for review at the weekly `checkin`, rather than just suppressing the
+symptom each time from scratch.
 
-## Чого не робити
+## What not to do
 
-- Не влаштовувати терапевтичну сесію — структурний інструмент, не заміна психолога/лікаря.
-- Не питати "чому ти так почуваєшся" — це worry tree, не аналіз причин.
-- Не давати заспокійливих запевнень — на румінацію вони не діють, і це не наша роль тут.
+- Don't run a therapy session — this is a structural tool, not a substitute for a therapist/doctor.
+- Don't ask "чому ти так почуваєшся" — this is worry tree, not root-cause analysis.
+- Don't give reassurances — they don't work on rumination, and that's not our role here.

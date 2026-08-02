@@ -3,25 +3,25 @@ name: log-bp
 description: Record a new blood pressure reading in vault/Blood Pressure.md - date/time, SYS/DIA/pulse, well-being note, comment. Use when Roman reports a blood pressure reading (text like "120/77, пульс 81", or a photo of the monitor), or explicitly asks to log/record his blood pressure.
 ---
 
-# Записати тиск
+# Log blood pressure
 
-Журнал: `vault/Blood Pressure.md`. Це фіксація даних, не медична консультація.
+Log: `vault/Blood Pressure.md`. This is data recording, not medical advice.
 
-## Кроки
+## Steps
 
-1. Визначити дату й час за Kyiv (`TZ=Europe/Kyiv date +"%F %H:%M"`).
-2. Отримати SYS / DIA / Пульс:
-   - Текстом (напр. "120/77, пульс 81") — розібрати напряму.
-   - Фото монітора — прочитати екран. Якщо якесь значення нечітке/затерте відблиском — **не
-     вгадувати**. Чітко сказати, що видно, а що ні, і попросити Романа підтвердити відсутнє.
-3. Коротко запитати про самопочуття, якщо Роман сам не сказав — не лишати це поле порожнім мовчки.
-4. Додати новий рядок унизу таблиці в `vault/Blood Pressure.md` (найновіші внизу, формат рядка як у
-   вже наявних записах).
-5. Закомітити і запушити в активну branch сесії і `main`, як завжди для vault-файлів.
+1. Determine the date and time in Kyiv (`TZ=Europe/Kyiv date +"%F %H:%M"`).
+2. Get SYS / DIA / Pulse:
+   - As text (e.g. "120/77, пульс 81") — parse directly.
+   - Photo of the monitor — read the screen. If any value is unclear/glare-obscured — **don't guess**.
+     Clearly state what's visible and what isn't, and ask Roman to confirm what's missing.
+3. Briefly ask about well-being if Roman didn't say himself — don't silently leave this field empty.
+4. Add a new row at the bottom of the table in `vault/Blood Pressure.md` (newest at the bottom, row
+   format matching existing entries).
+5. Commit and push to the session's active branch and `main`, as usual for vault files.
 
-## Чого не робити
+## What not to do
 
-- Не діагностувати, не пояснювати причини симптомів, не давати медичних порад — лише фіксація.
-- Якщо значення виглядають явно нетипово для Романа (дуже високі/низькі) — коротко сказати про це і
-  порадити звернутись до лікаря, без аналізу "чому" чи заспокоєння.
-- Не вигадувати відсутні значення — якщо Роман не дав самопочуття/коментар, просто запитати.
+- Don't diagnose, don't explain symptom causes, don't give medical advice — recording only.
+- If values look clearly atypical for Roman (very high/low) — briefly say so and suggest seeing a
+  doctor, without analyzing "why" or reassuring.
+- Don't invent missing values — if Roman didn't give well-being/comment, just ask.
