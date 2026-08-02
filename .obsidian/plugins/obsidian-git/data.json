@@ -1,0 +1,7 @@
+{
+  "hunks": {
+    "showSigns": true,
+    "hunkCommands": false,
+    "statusBar": "disabled"
+  }
+}

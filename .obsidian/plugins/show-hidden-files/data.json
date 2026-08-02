@@ -1,0 +1,17 @@
+{
+  "errorNoticeTimeout": 0,
+  "language": "",
+  "noticeTimeout": 5,
+  "openChangelogOnUpdate": true,
+  "showConfigurationFolder": true,
+  "showHiddenFiles": true,
+  "showingRules": [
+    "+/",
+    "-/\\.git(?:\\/|$)/u",
+    "-/\\.venv(?:\\/|$)/u",
+    "-/\\.obsidian(?:\\/|$)/u",
+    "-/\\.pytest_cache(?:\\/|$)/u",
+    "-/\\.ruff_cache(?:\\/|$)/u",
+    "-/\\.claude\\/worktrees(?:\\/|$)/u"
+  ]
+}

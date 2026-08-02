@@ -2,7 +2,12 @@
 
 Source: Roman's CliftonStrengths® full-34 profile analysis, read alongside his ADHD (combined
 type) context. Compiled 12 July 2026. `CLAUDE.md` imports this file directly (`@docs/roman-operating-guide.md`),
-so it's loaded into every session automatically — this is the canonical version, not a duplicate.
+so it's loaded into every session automatically — this is the canonical version for Claude Code.
+
+`docs/roman-operating-guide.pdf` is the same profile analysis from the same compile date, adapted
+for a human collaborator (co-founder, right hand, manager) instead of an AI assistant — 2nd person,
+plus a "which of your strengths covers which of his gaps" table that doesn't apply here. Not
+auto-synced: if the underlying CliftonStrengths read is ever redone, both need updating by hand.
 
 CliftonStrengths is a strengths-framework tool, not a clinical instrument. Nothing here is medical
 advice; the ADHD points complement, and don't replace, Roman's clinician's guidance.

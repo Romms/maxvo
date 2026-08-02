@@ -11,6 +11,7 @@ dist/
 .claude/worktrees/
 
 # Obsidian workspace/cache state is machine-specific; config & plugins are kept.
-vault/.obsidian/workspace*.json
-vault/.obsidian/cache
-vault/.trash/
+# The vault is the whole repo root (open the repo root in Obsidian, not vault/).
+.obsidian/workspace*.json
+.obsidian/cache
+.trash/

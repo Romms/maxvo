@@ -4,10 +4,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this repo is
 
-Roman's personal assistant, built on Claude Code. It's a personal Obsidian vault (`vault/`) plus a
-Python package (`src/maxvo/`) of scripts/tooling that operate on it. The vault's markdown notes are
-committed alongside the code that processes them — this is not a general-purpose library, it's
-tooling for one specific vault, for one specific person.
+Roman's personal assistant, built on Claude Code. The repo root itself is a personal Obsidian vault
+(`.obsidian/` config lives at the root, not inside `vault/`) — so skills, docs, and this file are all
+editable from within Obsidian, not just the notes. `vault/` holds the markdown notes proper; a Python
+package (`src/maxvo/`) provides scripts/tooling that operate on that notes folder specifically. The
+vault's markdown notes are committed alongside the code that processes them — this is not a
+general-purpose library, it's tooling for one specific vault, for one specific person.
 
 ## Working with Roman
 
@@ -121,5 +123,7 @@ maxvo tags                  # list all unique tags (frontmatter `tags:` + inline
   should generally be added as new `@main.command()`s here, built on top of `iter_notes()`.
 - Vault subfolders that need an index/root note (e.g. `vault/Ideas/`, `vault/Daily/`) name it
   `README.md`, not a file matching the folder name — keep this consistent for any new ones.
-- `vault/.obsidian/workspace*.json` and `.obsidian/cache` are gitignored (machine-specific
-  Obsidian UI state); `.obsidian/` config and installed plugins are otherwise kept in the repo.
+- The Obsidian vault is the repo root, not `vault/` — open the repo root folder in Obsidian.
+  `.obsidian/workspace*.json` and `.obsidian/cache` are gitignored (machine-specific UI state);
+  `.obsidian/` config and installed plugins are otherwise kept in the repo. `iter_notes()` only
+  walks `vault/`, so this is independent of what `maxvo` tooling reads — see `vault.py` above.

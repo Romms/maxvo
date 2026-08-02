@@ -2,7 +2,10 @@
 
 A personal Obsidian vault plus Python scripts for working with it.
 
-- `vault/` — the Obsidian vault itself (markdown notes, `.obsidian/` config).
+Open this repo root in Obsidian — that's the vault (`.obsidian/` config lives here), so skills,
+docs, and CLAUDE.md are all editable from within Obsidian too, not just the notes.
+
+- `vault/` — the markdown notes the `maxvo` tooling operates on.
 - `src/maxvo/` — Python package with scripts/tooling that operate on the vault.
 
 ## Setup

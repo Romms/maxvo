@@ -1,0 +1,12 @@
+{
+  "userIgnoreFilters": [
+    ".git",
+    ".venv",
+    "build",
+    "dist",
+    ".pytest_cache",
+    ".ruff_cache",
+    ".claude/worktrees"
+  ],
+  "showUnsupportedFiles": true
+}
