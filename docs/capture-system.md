@@ -53,6 +53,24 @@ each answer as its own row with a deadline earlier than the commitment itself. T
 the same principle as the "Task breakdown" chain in `docs/daily-rituals.md`, applied to preparation
 for a future event instead of execution of today's priority.
 
+**Every new Активні row needs a point-of-performance reminder, not just a deadline.** A deadline
+sitting in the table doesn't reach Roman unless he happens to run a check-in that day — see
+`vault/Projects/README.md`'s `Check-in` column, which exists for exactly this but was never wired to
+anything until now. Whenever a new Активні row is created — or an existing one still shows "уточнити"
+in `Check-in`, which `checkin`'s weekly pass sweeps for — ask Roman when he wants to be reminded: a
+concrete date+time, decoupled from whether the row's own deadline is concrete yet (an "уточнити
+дедлайн" task can still get a real reminder moment). If he only gives a day-part ("ввечері"), ask a
+quick follow-up for a rough time rather than inventing one — same rule as a missing deadline. Write
+the answer into `Check-in`, then create a matching event on the **`Нагадування`** Google Calendar (see
+`CLAUDE.md` "Calendars"): start = that moment, ~15 min duration, popup reminder override at 0 minutes
+before (fires right at the moment, not in advance — that's the point), title = short task name,
+description = the row's full text. When the row later moves out of Активні (Завершено, or dropped),
+find and delete that event by title match on `Нагадування` — don't persist event IDs into the
+human-facing table. `voice-capture` is the one exception: it's one-shot with no reply, so it can't
+ask — if the dictation states a concrete moment, use it as `Check-in` and create the event as normal;
+otherwise leave `Check-in` as "уточнити" for the next `checkin` backfill pass, same interactive-vs-
+one-shot line the late-night-date rule below already draws.
+
 **Completion criteria need to be verifiable, not tautological.** The test: could someone with no
 context read only the criterion and answer yes/no about whether it's done? A criterion that just
 restates the task with "done" tacked on fails this test and is worthless — Roman named the exact

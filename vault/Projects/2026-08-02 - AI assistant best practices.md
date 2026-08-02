@@ -5,10 +5,42 @@ date: 2026-08-02
 
 # AI Personal Assistant Best Practices — Research Notes
 
-Compiled 2026-08-02, via parallel research across five angles. This is raw research material, not
-yet matched against what maxvo does or doesn't do — that's the open Активні row in
-`vault/Projects/README.md` this file is linked from. Not `@`-imported into `CLAUDE.md`: it's
-reference material for that follow-up, not something every session needs loaded.
+Compiled 2026-08-02, via parallel research across five angles. Not `@`-imported into `CLAUDE.md`:
+it's reference material for the comparison below, not something every session needs loaded.
+
+## Порівняння з поточною архітектурою maxvo (2026-08-02)
+
+Що вже покрито добре — і що є справжньою прогалиною, зіставлено джерело за джерелом проти
+`CLAUDE.md`, усіх `docs/`, усіх `.claude/skills/*/SKILL.md` і auto-memory системи. Повний список
+рекомендацій і пріоритизація — у відповіді Клода в сесії 2026-08-02 (див. чат); тут — короткий
+підсумок для майбутніх сесій.
+
+**Вже добре покрито** (не потребує змін): прогресивне розкриття skills (frontmatter опис = what+when,
+тіло skillـa лаконічне); розділення capture/organize (Inbox → щотижневий checkin, точно як CODE);
+ланцюжок мікрокроків замість одного першого кроку (task breakdown у `daily-rituals.md` — уже прямо
+посилається на ADHD-адаптацію GTD); критерій завершення як образ фінішу, а не "зробити X" (Sarah
+Ward's "Get Ready·Do·Done", хоч і не усвідомлено звідти); "не тренувати слабку функцію, а змінити
+середовище" (Dawson & Guare) — це буквально принцип "complete him, don't correct him" з operating
+guide; auto-memory — файлова, git-аудійована, з описом що визначає використання (Letta memory
+blocks), оновлюється а не тільки додається (Mem0); voice-capture явно трактує диктовку як контент, не
+команди (інстинктивний захист від lethal trifecta); дефолт на один послідовний skill замість рою
+підагентів (Cognition's "Don't Build Multi-Agents").
+
+**Реальні прогалини, повторювані у кількох джерелах** (найвищий пріоритет):
+1. **Нагадування не "у точці дії"** (Barkley temporal myopia, External Systems for ADHD) — дедлайни й
+   "уточнити"-рядки в Активні зринають лише на ранковому/вечірньому чекіні, не в момент і місце дії.
+2. **Нуль evals/фідбек-циклу на якість ритуалів** (Hamel Husain, LangChain trajectory evals) — ніщо
+   не перевіряє, чи справді ранковий/вечірній чекін чи тріаж працюють добре з часом, окрім разових
+   виправлень Романа.
+3. **Немає ритуалу перегляду auto-memory** ("Is Agent Memory a Database?" — unregulated growth,
+   missing semantic revision) — файли пам'яті ніхто не переглядає і не чистить на регулярній основі.
+4. **PARA "Areas" відсутні** — постійні (без дедлайну) відповідальності типу здоров'я
+   (`Blood Pressure.md`) не мають формального місця окремо від Projects.
+
+**Менші/новіші можливості:** режим "прорепетирувати важку розмову" перед реальною (OZCHI 2025 diary
+study — саме для рядків типу "Зустрітися із П"); перевірка емоційного тертя навколо задачі, не лише
+логістики (Brown Model, Emotion cluster); AI body doubling — спільна фокус-сесія в реальному часі
+(більший фіча-запит, не просто правка документа).
 
 ## Anthropic / Claude Code official
 

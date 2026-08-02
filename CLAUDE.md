@@ -41,8 +41,10 @@ old "Work" calendar) used only for time-blocked task planning (`plan-day` skill)
 meetings/events, which stay on his primary/Appointments calendars. He also has **"Важливі Дати (+ Дні
 народження)"** — dedicated to yearly-recurring events (birthdays, anniversaries): all-day,
 `RRULE:FREQ=YEARLY`, a 7-day-before popup reminder is the established default (see the Mark/Ustym
-birthday events for the pattern). Resolve calendar IDs via `list_calendars` by name rather than
-hardcoding them, in case they're ever recreated.
+birthday events for the pattern). A fourth, **"Нагадування"**, holds point-of-performance reminders
+for `vault/Projects/README.md` Активні rows — one event per row's `Check-in` moment, popup at 0
+minutes before (see `docs/capture-system.md`). Resolve calendar IDs via `list_calendars` by name
+rather than hardcoding them, in case they're ever recreated.
 
 ## Continuous improvement
 
