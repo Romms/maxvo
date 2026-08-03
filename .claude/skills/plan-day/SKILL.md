@@ -45,7 +45,7 @@ medium + 5 small) or Ivy Lee (no more than 6, strict priority order, the next on
 the previous is closed). One question: "Це забагато для сьогодні. Що з цього реально мусить бути
 зроблено сьогодні?" — the rest goes to `vault/Projects/README.md` Активні (not lost, just not today).
 
-## Step 3: fixed meetings
+## Step 3: fixed meetings, and wind-down
 
 `list_events` on Roman's real calendars (primary `rommssh@gmail.com`, `Appointments`) for the target
 day — not "Daily Tasks", that one's task blocks only. Meetings are anchors — task blocks get built
@@ -53,6 +53,13 @@ around them, not on top of them.
 
 If the day's working window isn't obvious — ask ("з якої до якої сьогодні працюємо?"), otherwise
 propose a default of 09:00–19:00 and say so out loud rather than silently assuming.
+
+Also block an **evening wind-down anchor** — working backward from a target "ready to sleep" time
+(default ~23:30, confirm it's still right rather than assuming) minus however long wind-down itself
+needs (ask; don't invent a duration). This is Sarah Ward's "picture the finished state, then work
+backward" applied to the end of the day, and it's the fuel-guard half of `plan-day` — recovery doesn't
+happen on its own (see `docs/roman-operating-guide.md`), so it needs the same anchor treatment as a
+meeting, not just a hope that the day winds down naturally.
 
 ## Step 4: filling the calendar
 
