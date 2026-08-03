@@ -13,7 +13,7 @@ Reference: `docs/roman-operating-guide.md` for the full operating guide this rit
 Go through `vault/Inbox.md`'s "Unprocessed" section, item by item. For each entry, decide with Roman:
 
 - Clear actionable task/plan → move into `vault/Projects/README.md` Активні, with owner, deadline,
-  a concrete completion criterion, and a reminder moment in `Check-in` backed by a `Нагадування`
+  a concrete completion criterion, and a reminder moment in `Check-in` backed by a `Reminders`
   calendar event (see `docs/capture-system.md`).
 - Interesting but not a commitment yet → move into `vault/Projects/README.md` Ідеї, plus its
   `YYYY-MM-DD - Title.md` detail file.
@@ -35,14 +35,14 @@ Run exactly three questions, in order, against `vault/Projects/README.md`:
    those for a reminder moment same as a new row (see below), a few per week is fine, no need to
    clear all of them in one sitting.
 2. **What's actually finished vs. still open?** For each active row, ask directly. Finished rows move
-   to Завершено with the outcome — also delete that row's `Нагадування` calendar event (find it by
+   to Завершено with the outcome — also delete that row's `Reminders` calendar event (find it by
    title match). Rows he wants to abandon move there too, marked dropped, event deleted the same way
    — don't let them linger silently. Anything genuinely still in flight stays in Активні, but push for
    a real answer rather than a vague "still working on it."
 3. **What is *the one* priority for next week?** Singular — if he names more than one, ask him to
    pick. Add/update that row in Активні with an owner, deadline, a concrete completion criterion (not
    "make progress on X" — a criterion someone else could check), and a reminder moment in `Check-in`
-   backed by a `Нагадування` calendar event.
+   backed by a `Reminders` calendar event.
 
 Also skim Ідеї once: anything become relevant enough to actually commit to? If so, move it to Активні
 (with owner/deadline/completion criterion, same as any new commitment) — this is the only "promotion"
