@@ -5,15 +5,14 @@ date: 2026-08-02
 
 # AI Personal Assistant Best Practices — Research Notes
 
-Compiled 2026-08-02, via parallel research across five angles. Not `@`-imported into `CLAUDE.md`:
-it's reference material for the comparison below, not something every session needs loaded.
+Compiled 2026-08-02, via parallel research across five angles; refreshed 2026-08-03 with a targeted
+second pass per category (see below). Not `@`-imported into `CLAUDE.md`: it's reference material for
+the comparison below, not something every session needs loaded.
 
-## Порівняння з поточною архітектурою maxvo (2026-08-02)
+## Порівняння з поточною архітектурою maxvo (2026-08-02, оновлено 2026-08-03)
 
 Що вже покрито добре — і що є справжньою прогалиною, зіставлено джерело за джерелом проти
-`CLAUDE.md`, усіх `docs/`, усіх `.claude/skills/*/SKILL.md` і auto-memory системи. Повний список
-рекомендацій і пріоритизація — у відповіді Клода в сесії 2026-08-02 (див. чат); тут — короткий
-підсумок для майбутніх сесій.
+`CLAUDE.md`, усіх `docs/`, усіх `.claude/skills/*/SKILL.md` і auto-memory системи.
 
 **Вже добре покрито** (не потребує змін): прогресивне розкриття skills (frontmatter опис = what+when,
 тіло skillـa лаконічне); розділення capture/organize (Inbox → щотижневий checkin, точно як CODE);
@@ -24,23 +23,51 @@ Ward's "Get Ready·Do·Done", хоч і не усвідомлено звідти
 guide; auto-memory — файлова, git-аудійована, з описом що визначає використання (Letta memory
 blocks), оновлюється а не тільки додається (Mem0); voice-capture явно трактує диктовку як контент, не
 команди (інстинктивний захист від lethal trifecta); дефолт на один послідовний skill замість рою
-підагентів (Cognition's "Don't Build Multi-Agents").
+підагентів (Cognition's "Don't Build Multi-Agents"); усі 8 skills тепер англійською в інструкційній
+прозі (українські репліки для Романа й vault-термінологія — Активні/Ідеї/Check-in тощо — без змін) —
+консистентність, порушена наполовину перекладеним станом, усунена 2026-08-03.
 
-**Реальні прогалини, повторювані у кількох джерелах** (найвищий пріоритет):
-1. **Нагадування не "у точці дії"** (Barkley temporal myopia, External Systems for ADHD) — дедлайни й
-   "уточнити"-рядки в Активні зринають лише на ранковому/вечірньому чекіні, не в момент і місце дії.
-2. **Нуль evals/фідбек-циклу на якість ритуалів** (Hamel Husain, LangChain trajectory evals) — ніщо
-   не перевіряє, чи справді ранковий/вечірній чекін чи тріаж працюють добре з часом, окрім разових
-   виправлень Романа.
-3. **Немає ритуалу перегляду auto-memory** ("Is Agent Memory a Database?" — unregulated growth,
-   missing semantic revision) — файли пам'яті ніхто не переглядає і не чистить на регулярній основі.
-4. **PARA "Areas" відсутні** — постійні (без дедлайну) відповідальності типу здоров'я
-   (`Blood Pressure.md`) не мають формального місця окремо від Projects.
+**Зроблено / у процесі**:
+1. **Нагадування в точці дії** (обрано першим 2026-08-02) — правило описано в `docs/capture-system.md`
+   і 5 skills (checkin/evening-checkin/work-assistant/unstuck/voice-capture). Лишилось: створити
+   календар `Нагадування`, backfill 13 існуючих рядків — станеться при першому запуску skill із
+   доступом до Google Calendar (див. Активні рядок).
+2. **PARA "Areas"** (обрано другим 2026-08-03) — реалізовано: `vault/Areas/README.md` (індекс) +
+   `vault/Areas/Health/` (перший Area, `Blood Pressure.md` перенесено з кореня vault), dormancy-
+   check доданий у щотижневий `checkin`. Готово повністю, без залежності від зовнішніх інструментів.
 
-**Менші/новіші можливості:** режим "прорепетирувати важку розмову" перед реальною (OZCHI 2025 diary
-study — саме для рядків типу "Зустрітися із П"); перевірка емоційного тертя навколо задачі, не лише
-логістики (Brown Model, Emotion cluster); AI body doubling — спільна фокус-сесія в реальному часі
-(більший фіча-запит, не просто правка документа).
+**Досі відкриті прогалини — тепер із конкретним дизайном, не просто назвою** (після цілеспрямованого
+повторного дослідження 2026-08-03, по кожній зокрема, а не загального повторного пошуку). Роман ще
+не обирав, яку з цих двох брати третьою:
+
+1. **Evals/фідбек-цикл на якість ритуалів** — конкретний план тепер є: невеликий eval-файл на кожен
+   skill (10-20 кейсів, зібраних із реальних виправлень Романа — explicit invocation + implicit
+   trigger + negative control), спочатку детермінований trace-check, rubric лише за потреби (OpenAI
+   "Testing Agent Skills Systematically"; Claude skill-creator's Eval-режим). Дешевий субститут
+   постійного моніторингу: "прочитати N останніх Daily notes щотижня" + рахувати override/correction
+   rate Романа як безкоштовний сигнал (Anthropic "Demystifying Evals" — capability vs regression
+   evals, grade outcome окремо від transcript).
+2. **Ритуал перегляду auto-memory** — конкретний паттерн тепер є: не редагувати memory-файли на
+   місці, а раз на тиждень/два генерувати пропоновану консолідовану версію окремо для затвердження
+   (Claude's Dreams-паттерн: read store + recent transcripts → new separate output, input store не
+   чіпається); при суперечності — always supersede, never delete (0Latency contradiction-detection);
+   архівувати, якщо пам'ять 30+ днів не використовувалась (AI Agent Memory Design Guide);
+   найважливіше застереження — не довіряти самій моделі самостійно позначати застарілість (STALE
+   benchmark: frontier LLMs ловлять implicit conflict лише ~55% випадків), тому перевірка має бути
+   окремим детермінованим кроком, а не "запитати Клода чи щось застаріло".
+
+**Менші/новіші можливості — тепер із конкретнішою структурою**:
+1. **AI body doubling** — головна небезпека виявлена дослідженням: уникати gamification/рахунку/
+   стріків (учасники досліджень явно боялись over-reliance на систему) — сесія відкривається
+   завданням + рівнем енергії, лишається тихою/амбієнтною під час роботи (переривати лише короткою
+   афірмацією чи fatigue-нагадуванням за поведінковим порогом — неактивність, "кружляння" між
+   задачами — не за фіксованим інтервалом), закривається рефлексією ("що здивувало в цій сесії"), не
+   оцінкою.
+2. **Прорепетирувати важку розмову** — конкретна структура тепер є: визначити мету спершу (коучинг
+   нової техніки vs. практика відомої — по-різному, чи має AI підказувати), налаштувати опір
+   "співрозмовника" явно ("не роби це легким для мене" — інакше кооперативний strawman вбиває сенс
+   вправи), репетирувати саме гілку невдачі ("як це може піти не так"), і закрити цикл після реальної
+   розмови — що насправді сталось.
 
 ## Anthropic / Claude Code official
 
@@ -93,6 +120,25 @@ study — саме для рядків типу "Зустрітися із П");
 - **[Bringing Memory to Teams](https://claude.com/blog/memory)** — memory should be user-visible and
   user-editable (view/edit/incognito), scoped so contexts don't bleed into each other, tuned by
   explicit user feedback rather than silently accumulating an opaque store.
+- **[Demystifying Evals for AI Agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents)**
+  — Anthropic Engineering (Jan 2026). Separate **capability evals** (low pass rate, "what can it
+  do") from **regression evals** (should sit ~100%, "did it stop doing what it used to") — mature
+  capability evals graduate into regression suites over time. Grade **outcome** (actual end-state)
+  separately from the transcript; use **pass^k** (all k trials succeed), not pass@k, when judging
+  user-facing reliability.
+- **[Test, measure, and refine Agent Skills](https://claude.com/blog/improving-skill-creator-test-measure-and-refine-agent-skills)**
+  — Claude blog (Mar 2026). skill-creator's Create/Eval/Improve/Benchmark modes: verifiable
+  assertions per task prompt, with-skill vs. baseline runs graded by a sub-agent, pass-rate/tokens/
+  time tracked per iteration. For subjective/workflow-style skills, falls back to human qualitative
+  review instead of forcing brittle assertions.
+- **[Memory for Claude Managed Agents](https://claude.com/blog/claude-managed-agents-memory)** —
+  (Apr 2026, public beta). File-based memory with per-write audit logs (which agent/session wrote
+  what) and the ability to roll back to an earlier version or redact specific content.
+- **[Dreams](https://platform.claude.com/docs/en/managed-agents/dreams)** — research preview
+  (~May 2026). A scheduled/on-demand job reads the memory store plus recent transcripts and produces
+  a *new, separate* output store — duplicates merged, stale/contradicted entries replaced, new
+  insights surfaced — while never modifying the input store in place, so the result can be reviewed
+  and discarded if bad.
 
 ## General agent architecture (non-Anthropic)
 
@@ -141,6 +187,23 @@ study — саме для рядків типу "Зустрітися із П");
   exfiltration via tool calls, memory poisoning. Sanitize untrusted content before it enters context,
   least-privilege per tool, expiration/size/integrity checks on anything written to persistent
   memory.
+- **["Learning Personalized Agents from Human Feedback"](https://arxiv.org/html/2602.16173v1)** — a
+  3-step loop: pre-action clarification → ground the action in memory-stored preferences →
+  post-action correction updates memory when a preference drifted. The third step is usually the
+  missing piece — a correction should routinely get written back to memory, not just applied once.
+- **[Testing Agent Skills Systematically with Evals](https://developers.openai.com/blog/eval-skills)**
+  — OpenAI. Per-skill sets of 10-20 prompts (explicit invocation + implicit trigger + negative
+  control), deterministic trace-check first, rubric grading second, grown from real failures rather
+  than predicted upfront — small enough to run without a product-scale eval pipeline.
+- **["Always-On Agents" survey](https://arxiv.org/pdf/2606.30306)** — reframes persistent-state
+  agents around a full lifecycle (write/validate/organize/retrieve/act/update/**forget/audit/
+  rollback**) across 6 dimensions; explicitly calls out that the field over-indexes on accumulation/
+  retrieval and under-indexes on governing/forgetting/rollback.
+- Cross-session continuity benchmarks (**π-Bench**, arxiv.org/abs/2605.14678; **PAUSE**,
+  arxiv.org/html/2607.27354v1; **LifeSide**, arxiv.org/pdf/2606.04660) — all stress whether an agent
+  *proactively* surfaces stored state rather than waiting to be asked, over multi-month timelines —
+  confirms morning-checkin's "surface uncertain-deadline rows unasked" instinct is the right kind of
+  metric, even without off-the-shelf single-user tooling to benchmark against.
 
 ## Personal knowledge management + Obsidian/AI
 
@@ -178,6 +241,22 @@ study — саме для рядків типу "Зустрітися із П");
   — ScienceWorks Health. Externalization is a legitimate accommodation, not a workaround to
   "graduate" from. Any external system must be visible, automatic, and present at the exact point of
   performance, or it won't get used.
+- **["The PARA Method" — Forte Labs](https://fortelabs.com/blog/para/)**, revisited — Areas are
+  "important parts of your work and life that require ongoing attention," no completion state,
+  contrasted with Projects (short-term, defined goal + deadline); the personal-life example list
+  explicitly names Health, Finances, Kids, Car, Home as Areas.
+- **["How to Use PARA in an AI Second Brain"](https://www.iwoszapar.com/p/para-method-ai-second-brain)**
+  — for an AI-managed vault specifically: Areas hold facts/standards (reference, current state)
+  while Projects hold goal+deadline+open decisions; an Area needs a **dormancy check** instead of a
+  deadline as its review trigger.
+- **["How to Build an AI Second Brain That Evolves Over Time"](https://www.mindstudio.ai/blog/ai-second-brain-claude-code-obsidian-architecture)**
+  — MindStudio. Recommends a daily lightweight heartbeat (5-10 min) plus a weekly deep review
+  (30-60 min) as two distinct loops — maxvo's morning/evening rituals + weekly `checkin` already are
+  this split.
+- **Obsidian's official CLI (v1.12, Feb 2026) + [kepano/obsidian-skills](https://github.com/kepano/obsidian-skills)**
+  — Obsidian's own team now ships first-party Claude-Code/Codex agent skills (`obsidian-bases`,
+  `obsidian-cli`, `defuddle` for web-capture-to-markdown) — worth a look for `vault/Projects/
+  README.md`'s hand-rolled table and for the Inbox capture pipeline.
 
 ## Memory & personalization architecture
 
@@ -218,6 +297,28 @@ study — саме для рядків типу "Зустрітися із П");
 - **["Remembering More, Risking More"](https://arxiv.org/html/2605.17830v1)** — Virginia Tech.
   Memory-induced problem behavior grows with accumulated content and exposure length. Detectable at
   the retrieval step before generation — argues for a "check what's about to be recalled" gate.
+- **[AI Agent Memory Design Guide](https://hidekazu-konishi.com/entry/ai_agent_memory_design_guide.html)**
+  — a concrete decay formula (similarity × recency-half-life × reinforcement × confidence) and a
+  cadence: weekly/bi-weekly review for personal assistants with no external event hooks; archive
+  once a memory sits below threshold 30+ days unretrieved.
+- **[How to evaluate agent memory](https://labelstud.io/learningcenter/how-to-evaluate-agent-memory/)**
+  — automated regression checks on every memory-architecture change, plus human trace review on a
+  fixed weekly-or-per-release cadence, targeted at the hardest 5-10% of traces (conflict resolution,
+  drifted preferences) rather than the whole store.
+- **[Memory eviction and forgetting in AI agents](https://mem0.ai/blog/memory-eviction-and-forgetting-in-ai-agents)**
+  — Mem0. Passive TTL/decay handles bulk noise automatically; active reconciliation happens at write
+  time (new fact compared against top-k similar existing memories before committing); manual review
+  triggers specifically on new contradictions or storage thresholds, not a fixed clock.
+- **[STALE benchmark](https://arxiv.org/abs/2605.06527)** — names "Implicit Conflict" (new evidence
+  invalidates an old memory without explicit negation) and finds frontier LLMs self-catch it only
+  ~55% of the time — don't trust a model to self-flag its own memory as stale.
+- **[Contradiction-detection workflow — 0Latency](https://0latency.ai/blog/contradiction-detection.html)**
+  — semantic-similarity+polarity check, entity-attribute conflict tracking, temporal windowing (so
+  two facts months apart aren't falsely flagged); resolution should always **supersede, never
+  delete**.
+- **["Don't Ask the LLM to Track Freshness"](https://arxiv.org/abs/2606.01435)** — a deterministic
+  recency-field `max()` aggregation at retrieval time beats LLM-judged freshness — the failure point
+  is assembly, not storage.
 
 ## ADHD-specific assistive design
 
@@ -260,3 +361,25 @@ study — саме для рядків типу "Зустрітися із П");
 - **[JMIR Preprint #85013 — AI Virtual Assistant for young people with ADHD](https://preprints.jmir.org/preprint/85013/accepted)**
   — co-design study with ADHD users themselves as design partners. The methodological contribution
   (co-design with the actual user population) matters more than the specific prototype.
+- **["Toward Neurodivergent-Aware Productivity"](https://arxiv.org/html/2507.06864)** — nudges fire
+  off *behavioral thresholds* (tab-churn, inactivity, failed re-entry into a task), not a fixed
+  Pomodoro-style interval; AI stays ambient/silent by default, breaking silence only for a short
+  affirmation or fatigue nudge. Explicitly never a "performance ledger" — no ranking/streaks/
+  gamification, since users specifically feared over-reliance on the system.
+- **["Not Just Me and My To-Do List"](https://arxiv.org/html/2603.17258v1)** — CHI 2026. A focus
+  session opens with task + energy-level, stays low-friction during, and closes with a narrative
+  reflection ("what surprised you about this session?") rather than a score — "a companion, not a
+  manager."
+- **OpenClaw's shipped "ADHD Body Doubling" skill** (clawbot.ai) — a working reference
+  implementation: micro-step protocols, frequent check-ins, a named "dopamine reset" mechanic,
+  session history tracking.
+- **[Rehearsable.ai design notes](https://rehearsable.ai/blog/ten-tips-for-creating-ai-role-play-scenarios)**
+  — decide purpose first (coach a new technique vs. practice a known one changes whether the AI
+  should interject); configure the simulated counterpart's resistance explicitly ("push back the way
+  you think they would, don't make it easy for me") — a cooperative-strawman AI defeats the point.
+  Rehearse the failure branch specifically ("what's the most likely way this goes badly"), and close
+  the loop afterward by describing what actually happened.
+- **["Scaffolding Metacognition with GenAI"](https://arxiv.org/html/2602.09381v1)** — CHI 2026. Core
+  principle: "promote reflection, not automation" — full task outsourcing erodes metacognitive
+  skill; also recommends normalizing incompletion *during planning itself* to preempt anxiety about
+  not finishing.

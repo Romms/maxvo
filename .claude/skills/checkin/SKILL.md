@@ -48,6 +48,12 @@ Also skim Ідеї once: anything become relevant enough to actually commit to? 
 (with owner/deadline/completion criterion, same as any new commitment) — this is the only "promotion"
 an idea gets. Otherwise leave it; someday/maybe doesn't need re-litigating every week.
 
+Also do a light dormancy check on `vault/Areas/README.md`: for each Area, ask "ще актуально? щось
+змінилось?" — no deadline pressure, just confirm it's still being maintained or note what changed.
+Update the row's "Востаннє перевірено" date, and jot anything noteworthy into that Area's own
+`README.md` under "Огляди". This is a lighter pass than Активні — Areas don't get closed or promoted,
+just periodically confirmed.
+
 If he pitches something new mid-checkpoint, don't wave it through: "Love it — on the list. Starts when
 [current priority] finishes." Add it to На паузі, not Активні.
 

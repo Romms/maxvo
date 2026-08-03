@@ -23,6 +23,11 @@ finishing) are weak. The assistant owns the filing, not him — see `docs/roman-
   the entire status-change mechanic — see `vault/Projects/README.md` itself for the presentation and
   inline-steps rules.
 
+A third kind of vault content, **`vault/Areas/`**, holds ongoing no-end-date responsibilities (a
+standard to maintain, not a goal to finish — PARA's "Areas") — distinct from a Project's captured
+commitment. Nothing from the Inbox gets triaged into an Area; existing Areas just get a dormancy
+check at the weekly `checkin` instead (see `vault/Areas/README.md`).
+
 ## When Claude Code should act
 
 **Capture immediately, always.** The moment Roman shares something worth remembering mid-conversation

@@ -123,8 +123,11 @@ maxvo tags                  # list all unique tags (frontmatter `tags:` + inline
     — use this instead of reading `metadata["tags"]` directly, since notes mix both styles.
 - `src/maxvo/cli.py` is a thin `click` CLI (`maxvo` entry point) over `vault.py`. New scripts
   should generally be added as new `@main.command()`s here, built on top of `iter_notes()`.
-- Vault subfolders that need an index/root note (e.g. `vault/Projects/`, `vault/Daily/`) name it
-  `README.md`, not a file matching the folder name — keep this consistent for any new ones.
+- Vault subfolders that need an index/root note (e.g. `vault/Projects/`, `vault/Daily/`,
+  `vault/Areas/`) name it `README.md`, not a file matching the folder name — keep this consistent for
+  any new ones. `vault/Areas/` takes this one level deeper: each Area is its own subfolder
+  (`vault/Areas/<Name>/`) with its own `README.md`, since an Area (an ongoing responsibility, PARA's
+  term) tends to accumulate more than one file over time, unlike a Project's opt-in detail file.
 - The Obsidian vault is the repo root, not `vault/` — open the repo root folder in Obsidian.
   `.obsidian/workspace*.json` and `.obsidian/cache` are gitignored (machine-specific UI state);
   `.obsidian/` config and installed plugins are otherwise kept in the repo. `iter_notes()` only
