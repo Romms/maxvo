@@ -13,8 +13,9 @@ buffer time — ADHD time-estimates run optimistic, so blocks need slack built i
 ## Calendar
 
 Task blocks go on a separate **"Daily Tasks"** calendar, not the primary/Appointments one — so they
-don't mix with real meetings. Resolve `calendarId` via `list_calendars` by name ("Daily Tasks") —
-don't hardcode the ID, the calendar could get recreated.
+don't mix with real meetings. Use the hardcoded `calendarId` from `CLAUDE.md` "Calendars". If a call
+against it fails (calendar recreated), re-resolve via `list_calendars` by name and update the ID
+there.
 
 ## Step 1: brain dump
 

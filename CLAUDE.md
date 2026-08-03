@@ -43,8 +43,20 @@ meetings/events, which stay on his primary/Appointments calendars. He also has *
 `RRULE:FREQ=YEARLY`, a 7-day-before popup reminder is the established default (see the Mark/Ustym
 birthday events for the pattern). A fourth, **"Нагадування"**, holds point-of-performance reminders
 for `vault/Projects/README.md` Активні rows — one event per row's `Check-in` moment, popup at 0
-minutes before (see `docs/capture-system.md`). Resolve calendar IDs via `list_calendars` by name
-rather than hardcoding them, in case they're ever recreated.
+minutes before (see `docs/capture-system.md`).
+
+Calendar IDs, hardcoded here to skip a `list_calendars` round-trip on every use:
+
+- Primary (real meetings): `rommssh@gmail.com`
+- Appointments: `2e741530f7d19f9a2405061e9a614c8b65d1e3ee2bfadbc3c230638fa5de6b9b@group.calendar.google.com`
+- Daily Tasks: `a00af0b9307468c134d26a72918080fb00f232373acf45d9298af46f6932953f@group.calendar.google.com`
+- Важливі Дати (+ Дні народження): `mqtk853qusqomka376c3uc48l4@group.calendar.google.com`
+- Нагадування: not created yet — resolve via `list_calendars` once it exists, then hardcode its ID
+  here too.
+
+If a call against one of these IDs 404s or hits the wrong calendar, it means the calendar got
+recreated (already happened once, "Daily Tasks" used to be "Work") — re-resolve via `list_calendars`
+by name and update the ID above.
 
 ## Continuous improvement
 
