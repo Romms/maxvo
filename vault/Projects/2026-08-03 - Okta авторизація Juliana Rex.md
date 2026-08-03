@@ -13,9 +13,45 @@ Ruslan Kobieliev, Blocked).
 
 ## Потік 1: робочий асистент — поточний стан Juliana/Rex
 
-Запитано робочого асистента (Base44) розібратись, як зараз працює авторизація в Juliana та Rex (код,
-Terraform, Okta/Auth0 конфіг) і чого саме бракує. Відповідь ще не отримана (запит виконується довго,
-у фоні) — допишу сюди, коли прийде.
+### Juliana (`apps/api` + `apps/web`)
+
+Browser → Okta (PKCE) → Okta access token → Juliana API (JWKS validation). Локальні ролі
+(`UserRole { User, Admin, OpsAdmin }`, `RexUserAccessGuard`) — не з Okta.
+
+- В продакшені зараз працює в **legacy mode** (`OKTA_DIRECT_JWT=false`): API сам мінить JWT pair,
+  confidential Okta flow (authorization code + client_secret) — старий, "мертвий" в сенсі напрямку
+  розвитку код (`okta.service.ts`).
+- Plan 108 (перехід на direct Okta PKCE) **уже повністю реалізовано в коді**, просто не увімкнений.
+
+### Rex (`apps/rex-api`)
+
+Та ж модель (Bearer Okta token → JWKS validation), але **окремий deployment**, власна БД, власний
+auth-модуль (не спільний пакет із Juliana). **Без legacy fallback** — вимагає direct Okta, і без
+нього продакшн не працює. **Auth0 не використовує взагалі.** M2M між Rex і Juliana — окремо, через
+HMAC-signed HTTP, не Okta.
+
+### Auth0 — де він реально є (і де немає)
+
+**Auth0 не використовується ні для Juliana, ні для Rex.** Auth0 керує MCP Clients (Claude/Cursor),
+scribe-mcp, decisions-mcp, okta-automations, unicore-railway.io — окремий домен застосунків.
+
+### Головний блокер (задокументований, decision `D-20260721-direct-okta-ready-pending-api-access-management`)
+
+**Okta API Access Management не увімкнений на `universe.okta.com`.** Custom authorization server
+повертає `E0000015` ("немає прав на цю фічу"). Org authorization server працює, але не підходить:
+його токени не містять `email` claim, потрібний `OktaUserResolver`-у, і Okta не підтримує валідацію
+org-server токенів на стороні resource server. **Це платний Okta add-on — ops/licensing рішення, не
+код.**
+
+Через це: Juliana сидить у legacy-режимі, а Rex-api — повністю готовий код, але "dark by config only"
+(не може піти в прод через той самий блокер + окремо потребує Phase 4 інфраструктури: subdomain,
+Doppler project, Okta-конфіг).
+
+### Висновок робочого асистента щодо Okta vs Auth0
+
+**Перехід Juliana/Rex на Auth0 був би кроком назад**, не рішенням: Auth0 федерується через Okta, але
+валідація на resource-server все одно лишається на боці застосунку — тобто той самий блокер
+(API Access Management) нікуди не зникає, а весь auth-модуль довелось би переписувати заново.
 
 ## Потік 2: Клод — Okta-концепти й порівняння з Auth0
 
@@ -68,12 +104,22 @@ Okta-native кастомізацією.
 ([Auth0 vs Okta — StackShare](https://stackshare.io/stackups/auth0-vs-okta),
 [Customize tokens with custom claims — Okta Developer](https://developer.okta.com/docs/guides/customize-tokens-returned-from-okta/main/))
 
-### Висновок (попередній, до відповіді робочого асистента)
+### Висновок
 
-Якщо Juliana/Rex — звичайні застосунки (як MCP, tRPC), то шлях через **Auth0** — вже існуючий,
-перевірений патерн, і обходить блокер з API Access Management (не треба платного add-on / super
-admin прав на Okta-орзі). Якщо ж їм справді потрібна саме пряма Okta-валідація (наприклад,
-server-to-server без посередника, чи специфічні access policies на рівні Okta), тоді потрібно
-розблоковувати API Access Management у Okta-орзі.
+Попередня гіпотеза (нижче, закреслена по суті) припускала, що Auth0 міг би обійти блокер — **це
+виявилось невірно**. Juliana/Rex вже архітектурно на direct Okta (не Auth0), і Auth0 не вирішує сам
+блокер (валідація токена все одно на стороні застосунку). Перехід на Auth0 = переписати весь
+auth-модуль заради нуля вигоди.
 
-Остаточне рішення — після відповіді робочого асистента про реальний поточний стан Juliana/Rex.
+**Реальний наступний крок:** увімкнути Okta API Access Management на `universe.okta.com` — це
+ops/licensing рішення (можливо платний add-on, потрібні права super admin на Okta-орзі), не задача
+для коду. Після цього — прапорці в Doppler (`OKTA_DIRECT_JWT=true` для Juliana) і, окремо для Rex —
+Phase 4 інфраструктура (subdomain, Doppler project, Okta-конфіг).
+
+<details><summary>Попередня (спростована) гіпотеза, для історії</summary>
+
+Якщо Juliana/Rex — звичайні застосунки (як MCP, tRPC), то шлях через Auth0 — вже існуючий, перевірений
+патерн, і обходить блокер з API Access Management. Якщо ж їм справді потрібна саме пряма
+Okta-валідація, тоді потрібно розблоковувати API Access Management у Okta-орзі.
+
+</details>
