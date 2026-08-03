@@ -57,6 +57,17 @@ If a call against one of these IDs 404s or hits the wrong calendar, it means the
 recreated (already happened once, "Daily Tasks" used to be "Work") — re-resolve via `list_calendars`
 by name and update the ID above.
 
+**Self-hosted personal integrations.** For a service whose API needs OAuth with rotating refresh
+tokens (a static env var doesn't work — see `work-assistant`/`BASE44_API_KEY` for the simpler case
+where it does), the standing pattern is: one Railway project, **"Personal Services"**, with each
+integration as its own separate service inside it (own repo fork, own env vars, own persistent volume
+if it needs to survive restarts) — connected to Claude via its own `claude.ai` custom connector
+(Settings → Connectors → Add custom connector, remote MCP over HTTPS; this runs from Anthropic's
+cloud, not the ephemeral per-session container, so it isn't subject to the secrets-storage
+limitations of a session spinning up its own MCP process). One project, many services — not one
+unified MCP server per service, and not a new Railway project per integration. WHOOP
+(`vault/Projects/2026-08-03 - WHOOP integration.md`) is the first instance of this pattern.
+
 ## Continuous improvement
 
 This assistant is expected to get better at its job over time, not just execute each task in
