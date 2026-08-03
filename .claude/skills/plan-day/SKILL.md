@@ -23,6 +23,14 @@ Gather the day's task list:
 - Ask directly: "які задачі на сьогодні?"
 - Pull in from `vault/Projects/README.md` Активні anything due today/this week
 - Skim `vault/Inbox.md` Unprocessed for anything that looks like today's task
+- Also ask about today's three meals — сніданок/обід/вечеря — specifically because meals are exactly
+  the kind of routine that hyperfocus makes invisible (nothing forces them onto the radar the way a
+  deadline does). For each: готувати / замовити / піти кудись — this determines both duration and
+  prep steps (готувати needs a check "чи є всі продукти" and a shopping step if not, plus cooking
+  time; замовити needs a decide+order step plus wait+eat time; піти кудись needs travel time both
+  ways plus eating time, and is an anchor like a fixed meeting rather than a movable block). From here
+  on treat each meal like any other task on the list — size it, block it, break it into steps if
+  needed — not a lesser, easy-to-drop item.
 
 Just gather the list, briefly — don't discuss or prioritize at this step.
 
@@ -55,7 +63,10 @@ In order, by priority:
 
 Before actually creating events — show Roman the proposed schedule in one message (time → task, in
 order), giving him a chance to quickly adjust order/duration. Only after that, create events via
-`create_event` on "Daily Tasks" (`summary` = short task name).
+`create_event` on "Daily Tasks" (`summary` = short task name), each with a popup reminder override at
+0 minutes before — fires right at the moment the block starts, same point-of-performance principle as
+the `Reminders` calendar (`docs/capture-system.md`), so "what am I on right now" doesn't require
+actively checking the calendar.
 
 For medium/large tasks — break it into a short chain of concrete steps (as in morning-checkin, see
 "Task breakdown" in `docs/daily-rituals.md`) and put it in the event's `description`, not just the
