@@ -76,6 +76,16 @@ ask — if the dictation states a concrete moment, use it as `Check-in` and crea
 otherwise leave `Check-in` as "уточнити" for the next `checkin` backfill pass, same interactive-vs-
 one-shot line the late-night-date rule below already draws.
 
+**"Ball not on Roman's side" rows need the same reminder mechanism, pointed at a check, not a task.**
+When a row is blocked on someone else's reply (a colleague, a bank, a vendor) — Roman asked directly
+how to organize this: he needs to not actively remember it, since there's nothing for him to *do*
+right now. Mark the row explicitly (e.g. "**Очікує відповіді від X**" / "м'яч не на боці Романа") so
+it reads as waiting, not stalled-on-him, at a glance. Then set `Check-in` to a concrete follow-up
+date+time same as any other row, but frame the reminder itself as a status check, not an action item
+— "чи відповів X? якщо ні, написати ще раз" rather than "написати X." Pick the date by how fast that
+kind of reply realistically comes (a colleague: a few days; a bank: closer to a week) — don't ask
+Roman to pick a cadence for something he's not tracking anyway.
+
 **Completion criteria need to be verifiable, not tautological.** The test: could someone with no
 context read only the criterion and answer yes/no about whether it's done? A criterion that just
 restates the task with "done" tacked on fails this test and is worthless — Roman named the exact
