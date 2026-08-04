@@ -19,7 +19,7 @@ Today's note lives at `vault/Daily/YYYY-MM-DD.md` (today's date).
 3. Name what actually got finished today, even something small — say it out loud, don't just move
    past it.
 4. Anything left open: add it to `vault/Projects/README.md` Активні (if it's still a live commitment
-   — ask when to remind and write it into `Check-in` plus a `Нагадування` calendar event, per
+   — ask when to remind and write it into `Check-in` plus a `Reminders` calendar event, per
    `docs/capture-system.md`) or `vault/Inbox.md` (if unclear) — never let it silently disappear.
 5. New ideas or urges that came up today but weren't today's priority → `vault/Projects/README.md`
    Ідеї (add a row plus a `YYYY-MM-DD - Title.md` detail file), parked. Do not start them tonight.

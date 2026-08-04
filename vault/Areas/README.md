@@ -10,7 +10,7 @@ the weekly `checkin` — "still being maintained? anything changed?" — not aga
 
 | Area | Що означає "в нормі" | Востаннє перевірено | Деталі |
 |---|---|---|---|
-| Health | Тиск у межах норми, немає симптомів, яким немає пояснення | 2026-08-03 | [[Health/README\|Health]] |
+| Health | Тиск у межах норми, немає симптомів, яким немає пояснення, регулярні тренування 2-3р/тиждень | 2026-08-03 | [[Health/README\|Health]] |
 
 Each Area gets its own folder (`vault/Areas/<Назва>/`) with at least a `README.md` — same
 subfolder-index convention as `vault/Projects/` and `vault/Daily/` (see `CLAUDE.md` Architecture).

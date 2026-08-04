@@ -66,11 +66,11 @@ in `Check-in`, which `checkin`'s weekly pass sweeps for — ask Roman when he wa
 concrete date+time, decoupled from whether the row's own deadline is concrete yet (an "уточнити
 дедлайн" task can still get a real reminder moment). If he only gives a day-part ("ввечері"), ask a
 quick follow-up for a rough time rather than inventing one — same rule as a missing deadline. Write
-the answer into `Check-in`, then create a matching event on the **`Нагадування`** Google Calendar (see
+the answer into `Check-in`, then create a matching event on the **`Reminders`** Google Calendar (see
 `CLAUDE.md` "Calendars"): start = that moment, ~15 min duration, popup reminder override at 0 minutes
 before (fires right at the moment, not in advance — that's the point), title = short task name,
 description = the row's full text. When the row later moves out of Активні (Завершено, or dropped),
-find and delete that event by title match on `Нагадування` — don't persist event IDs into the
+find and delete that event by title match on `Reminders` — don't persist event IDs into the
 human-facing table. `voice-capture` is the one exception: it's one-shot with no reply, so it can't
 ask — if the dictation states a concrete moment, use it as `Check-in` and create the event as normal;
 otherwise leave `Check-in` as "уточнити" for the next `checkin` backfill pass, same interactive-vs-

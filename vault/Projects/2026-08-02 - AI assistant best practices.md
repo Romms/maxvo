@@ -29,9 +29,10 @@ blocks), оновлюється а не тільки додається (Mem0); 
 
 **Зроблено / у процесі**:
 1. **Нагадування в точці дії** (обрано першим 2026-08-02) — правило описано в `docs/capture-system.md`
-   і 5 skills (checkin/evening-checkin/work-assistant/unstuck/voice-capture). Лишилось: створити
-   календар `Нагадування`, backfill 13 існуючих рядків — станеться при першому запуску skill із
-   доступом до Google Calendar (див. Активні рядок).
+   і 5 skills (checkin/evening-checkin/work-assistant/unstuck/voice-capture). Календар `Reminders`
+   створено Романом 2026-08-03, `calendarId` вже резолвлено й захардкоджено в `CLAUDE.md`. Лишилось:
+   backfill 13 існуючих рядків — станеться при першому запуску skill із доступом до Google Calendar
+   (див. Активні рядок).
 2. **PARA "Areas"** (обрано другим 2026-08-03) — реалізовано: `vault/Areas/README.md` (індекс) +
    `vault/Areas/Health/` (перший Area, `Blood Pressure.md` перенесено з кореня vault), dormancy-
    check доданий у щотижневий `checkin`. Готово повністю, без залежності від зовнішніх інструментів.

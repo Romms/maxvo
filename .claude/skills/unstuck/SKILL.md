@@ -40,7 +40,7 @@ One direct question: **"Це щось, на що ти можеш реально 
   when it happens.
 - Write it into `vault/Projects/README.md` Активні (if it's a task) or set a concrete time for the
   decision/conversation. The "коли" from this step doubles as `Check-in` for the row — create a
-  `Нагадування` calendar event for that moment (`docs/capture-system.md`), not just a date in the
+  `Reminders` calendar event for that moment (`docs/capture-system.md`), not just a date in the
   table.
 - Say directly: "План записано на [коли]. Думати про це до того часу немає сенсу — мозок тримає
   думку активною, поки не бачить плану, а тепер бачить."
