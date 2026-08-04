@@ -42,20 +42,27 @@ ToS). Токени зберігаються в SQLite на Railway volume з а�
 MCP tools сервера: `get_today` (recovery+сон+strain, ранковий бриф), `get_recovery_trends`,
 `get_sleep_analysis`, `get_strain_history`, `sync_data`, `get_auth_url`.
 
-## Кроки (сторона Романа — інфраструктура/акаунти, Клод це зробити не може)
+## Прогрес (оновлено 2026-08-04)
 
-1. **WHOOP Developer App**: developer.whoop.com → створити застосунок → Client ID/Secret → redirect
-   URI = майбутній `https://<app>.railway.app/callback`.
-2. **Форкнути репо** у свій GitHub (не деплоїти з чужого репо напряму).
-3. **Railway**: якщо ще нема — створити проєкт **"Personal Services"** (дім для всіх майбутніх
-   self-hosted особистих інтеграцій, не лише WHOOP) → додати новий **сервіс** всередині проєкту з
-   форку whoop-mcp-server → env vars `WHOOP_CLIENT_ID`, `WHOOP_CLIENT_SECRET`, `WHOOP_REDIRECT_URI`
-   → **persistent volume на `/data`** (тут живе SQLite з токенами — без цього доведеться re-auth
-   після кожного рестарту) → deploy → перевірити `/health` цього сервісу.
-4. **Claude.ai custom connector**: Settings → Connectors → Add custom connector → назва **"Whoop"**
-   (впливає на передбачувану назву tools далі) → URL `https://<app>.railway.app/mcp`.
-5. **Одноразова авторизація**: викликати `get_auth_url` у будь-якому чаті → перейти за посиланням →
+1. ✅ **Форк**: `github.com/Romms/whoop-mcp-server`, клоновано в `~/PersonalProjects/whoop-mcp-server`.
+2. ✅ **Railway**: проєкт **"Personal Services"** (workspace "My Projects" на `rommssh@gmail.com` —
+   не робочий `roman.shevchuk@uni.tech`, з тим спершу переплутали), сервіс задеплоєний, persistent
+   volume на `/data` додано (SQLite тут переживе рестарти), домен
+   `https://personal-services-production-dc3e.up.railway.app`.
+3. ✅ **WHOOP Developer App**: створено, Client ID/Secret додані в Railway variables
+   (`WHOOP_CLIENT_SECRET` — sealed, не видно навіть Роману після збереження — це нормально, сервіс
+   його все одно бачить). Redirect URI, Privacy Policy (`/privacy` — мінімальна чесна сторінка,
+   додана в код спеціально під вимогу форми), Contact — всі виставлені. `WHOOP_REDIRECT_URI`,
+   `MCP_MODE=http`, `DB_PATH=/data/whoop.db` виставлені в Railway.
+4. ✅ Redeploy з реальними креденшелами пройшов: `/health` → `{"status":"ok","authenticated":false}`
+   (очікувано — авторизація ще попереду).
+5. ⬜ **Claude.ai custom connector**: Settings → Connectors → Add custom connector → назва **"Whoop"**
+   → URL `https://personal-services-production-dc3e.up.railway.app/mcp`. **Роман зробить пізніше.**
+6. ⬜ **Одноразова авторизація**: викликати `get_auth_url` у будь-якому чаті → перейти за посиланням →
    логін у WHOOP → авторизувати → редірект назад → стартує початкова синхронізація за 90 днів.
+   **Роман зробить пізніше.**
+
+Лишається лише те, що вимагає браузера/акаунтів Романа — вся інфраструктура готова й чекає.
 
 ## Що Клод підключає, щойно конектор живий
 
