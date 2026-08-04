@@ -56,13 +56,13 @@ MCP tools сервера: `get_today` (recovery+сон+strain, ранковий 
    `MCP_MODE=http`, `DB_PATH=/data/whoop.db` виставлені в Railway.
 4. ✅ Redeploy з реальними креденшелами пройшов: `/health` → `{"status":"ok","authenticated":false}`
    (очікувано — авторизація ще попереду).
-5. ⬜ **Claude.ai custom connector**: Settings → Connectors → Add custom connector → назва **"Whoop"**
-   → URL `https://personal-services-production-dc3e.up.railway.app/mcp`. **Роман зробить пізніше.**
-6. ⬜ **Одноразова авторизація**: викликати `get_auth_url` у будь-якому чаті → перейти за посиланням →
-   логін у WHOOP → авторизувати → редірект назад → стартує початкова синхронізація за 90 днів.
-   **Роман зробить пізніше.**
+5. ✅ **Claude.ai custom connector**: додано, назва **"Whoop"**, tools (`get_today`, `get_auth_url`,
+   `get_recovery_trends`, `get_sleep_analysis`, `get_strain_history`, `sync_data`) видно в сесії.
+6. ✅ **Авторизація**: пройдена 2026-08-04 — `get_today` повертає реальні дані (recovery 56% Yellow,
+   HRV 34.3ms, сон 8г22хв/91% performance, strain 4.0 Light), не auth error.
 
-Лишається лише те, що вимагає браузера/акаунтів Романа — вся інфраструктура готова й чекає.
+Лишається: 7) перевірити, що токен переживає рестарт Railway-сервісу (volume мав це вирішити, ще не
+перевірено на практиці) 8) підключити дані у `morning-checkin`/`evening-checkin`/`plan-day`/`workout`.
 
 ## Безпека `/mcp` (додано 2026-08-04)
 
