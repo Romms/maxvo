@@ -1,25 +1,30 @@
 ---
 name: workout
-description: Prepare a gym session against Roman's self-directed training program (Full Body, 2-3x/week) and pull target weights from his Hevy workout history. Use when Roman asks what today's workout is, heads to or is at the gym, asks to plan a training session, or invokes /workout.
+description: Prepare a gym session against Roman's self-directed training program (Full Body A/B, 2-3x/week) and pull target weights from his Hevy workout history. Use when Roman asks what today's workout is, heads to or is at the gym, asks to plan a training session, or invokes /workout.
 ---
 
 # Workout: prepare a gym session
 
 Roman trains independently now (previously with a coach) — this skill is the planning role a coach
-would otherwise play: set target weights, adjust over time. Not medical advice — see
-`vault/Areas/Health/Тренування.md`'s "Профіль і обмеження" section for his stated constraints (disc
-protrusions, reflux) and respect them every time, not just when first set up.
+would otherwise play: decide the session, set target weights, adjust over time. Not medical advice —
+see `vault/Areas/Health/Тренування.md`'s "Профіль і обмеження" section for his stated constraints
+(disc protrusions, reflux) and respect them every time, not just when first set up.
 
 `vault/Areas/Health/Тренування.md` holds the coaching context (profile, constraints, the Full Body
-exercise list, evidence-based rationale in [[Тренування — дослідження і критика]]) — still the source
-Claude reads to design/adjust the program. Actual session history (what got logged, weight × reps)
-lives in **Hevy**, not a vault table — logging happens in the app during the workout, which is a
-better in-gym experience than typing sets into chat.
+A/B exercise lists, evidence-based rationale in [[Тренування — дослідження і критика]]) — still the
+source Claude reads to design/adjust the program. Actual session history (what got logged, weight ×
+reps) lives in **Hevy**, not a vault table — logging happens in the app during the workout, which is
+a better in-gym experience than typing sets into chat.
 
-Single routine ("Full Body"), same session every time — no day-type decision needed, unlike the
-earlier Upper/Lower split. Roman's old "Lower" routine is renamed "АРХІВ (не використовувати)" with a
-placeholder exercise, since the Hevy public API has no DELETE endpoint for routines — safe to ignore,
-he can delete it manually in the app if it bothers him.
+Two routines, "Full Body A" and "Full Body B" — a single combined Full Body session (~75-90 min in
+practice) ran long against Roman's ~60 min target, so it's split by exercise selection, not by body
+region: **both A and B hit upper push+pull and lower quad+posterior-chain every time**, unlike the
+earlier Upper/Lower split, so missing a session doesn't leave a whole body region untrained for a
+week. Alternate A → B → A on each session, same alternation logic the old Upper/Lower used.
+
+Hevy's public API has no DELETE endpoint for routines — if a routine needs retiring, either repurpose
+it via `PUT` (overwrite with new content) or tell Roman to delete it manually in the app; don't leave
+stale placeholder routines lying around as the default move.
 
 ## Setup (one-time, not done automatically)
 
@@ -40,24 +45,28 @@ Base URL: `https://api.hevyapp.com/v1`. Every call needs the header `api-key: $H
 # List recent workouts (paginated - page/pageSize params)
 curl -s "https://api.hevyapp.com/v1/workouts?page=1&pageSize=10" -H "api-key: $HEVY_API_KEY"
 
-# Create a routine (one-time setup — "Full Body" from Тренування.md's exercise list)
+# Create a routine (one-time setup — "Full Body A" / "Full Body B" from Тренування.md's lists)
+# POST requires folder_id (use null); PUT to update an existing routine does NOT accept folder_id.
 curl -s -X POST "https://api.hevyapp.com/v1/routines" -H "api-key: $HEVY_API_KEY" \
-  -H "Content-Type: application/json" -d '{"routine": {"title": "Full Body", "exercises": [...]}}'
-# To update an existing routine instead of creating a duplicate: PUT /v1/routines/{id} (same body
-# shape, no folder_id field on PUT). There is no DELETE endpoint for routines in this API.
+  -H "Content-Type: application/json" -d '{"routine": {"title": "Full Body A", "folder_id": null, "exercises": [...]}}'
+
+# Custom exercise (when nothing in exercise_templates fits, e.g. tibialis anterior work):
+curl -s -X POST "https://api.hevyapp.com/v1/exercise_templates" -H "api-key: $HEVY_API_KEY" \
+  -H "Content-Type: application/json" -d '{"exercise": {"title": "...", "muscle_group": "calves", "exercise_type": "bodyweight_reps", "equipment_category": "none"}}'
 
 # List exercise templates (needed to resolve exercise names to the IDs routines/workouts require)
 curl -s "https://api.hevyapp.com/v1/exercise_templates" -H "api-key: $HEVY_API_KEY"
 ```
 
-Full API reference: `https://api.hevyapp.com/docs/`. If the "Full Body" routine doesn't exist yet in
-Hevy (first time this skill runs with a working key), create it once via `POST /v1/routines` before
+Full API reference: `https://api.hevyapp.com/docs/`. If "Full Body A"/"Full Body B" don't exist yet in
+Hevy (first time this skill runs with a working key), create them once via `POST /v1/routines` before
 doing anything else. Supersets use a shared `superset_id` (integer) across the paired exercises.
 
 ## Prepare today's session
 
-1. `GET /v1/workouts` (most recent page) to see the last logged session's exercises and weights.
-2. For each exercise in the Full Body list, look at its most recent occurrence across recent workouts:
+1. `GET /v1/workouts` (most recent page) to find which routine (A or B — inferred from which
+   exercises appear) was logged last, and alternate. No workouts yet → today is A.
+2. For each exercise in that session's list, look at its most recent occurrence across recent workouts:
    - No prior entry anywhere → calibration: start light, aim for 10-12 reps, note it's a first
      attempt.
    - Prior entry, felt easy/hit the top of the rep range comfortably → suggest a small increase
@@ -65,9 +74,9 @@ doing anything else. Supersets use a shared `superset_id` (integer) across the p
    - Prior entry, felt hard/didn't complete the range → suggest repeating the same weight.
    Always frame these as suggestions to confirm in the moment, not fixed prescriptions — how it
    actually feels during the set is the real signal, not the history.
-3. Present the session plan as one message: each exercise (grouped by superset pair where relevant)
-   with suggested weight/reps — short and scannable, like `plan-day`'s proposed-schedule format, not
-   a wall of explanation.
+3. Present the session plan as one message: which session (A or B), then each exercise (grouped by
+   superset pair where relevant) with suggested weight/reps — short and scannable, like `plan-day`'s
+   proposed-schedule format, not a wall of explanation.
 4. Tell Roman to log the actual session in the Hevy app as he goes — this skill doesn't write
    workouts back for him mid-session, it prepares what to aim for.
 
