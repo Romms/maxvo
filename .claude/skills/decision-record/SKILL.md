@@ -5,10 +5,17 @@ description: Research a choice using authoritative, current sources and record i
 
 # Decision record: research it, cite it, keep it correctable
 
-Adapted from the software "Architecture Decision Record" (ADR) pattern — same rigor (context →
-decision → alternatives → consequences, with a status lifecycle instead of overwriting history) —
-but generalized to any of Roman's projects, not code specifically. This formalizes what already
-happened ad hoc for `2026-08-03 - WHOOP integration` and
+This is **evidence-based practice** (the clinical-decision model — best available evidence +
+practitioner judgment + the individual's specific context — applied to Roman's life instead of
+medicine), structurally borrowing the software "Architecture Decision Record" (ADR) pattern (context
+→ decision → alternatives → consequences, with a status lifecycle instead of overwriting history).
+The three EBP pillars map directly onto the format below: **Джерела** is the evidence, **Рішення**
+is the practitioner's synthesis of it (not just a source dump), **Контекст** is what makes it
+Roman's specific case rather than generic best practice. The lifecycle (`superseded by`) is EBP's
+defining trait, not an afterthought — a decision is explicitly expected to update when better
+evidence shows up, unlike "we've always done it this way."
+
+This formalizes what already happened ad hoc for `2026-08-03 - WHOOP integration` and
 `2026-08-02 - AI assistant best practices`: research with real sources, write down why, let it be
 superseded later instead of quietly edited.
 
