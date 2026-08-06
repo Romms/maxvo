@@ -81,6 +81,10 @@ curl -s -X POST "https://api.hevyapp.com/v1/routines" -H "api-key: $HEVY_API_KEY
   -H "Content-Type: application/json" -d '{"routine": {"title": "Full Body A", "folder_id": null, "exercises": [...]}}'
 
 # Custom exercise (when nothing in exercise_templates fits, e.g. tibialis anterior work):
+# Note the asymmetry: POST uses exercise_type/muscle_group/equipment_category, but a later GET on
+# the same template returns those same values under type/primary_muscle_group/equipment instead —
+# same pattern as the PUT routines quirk above (write shape != read shape). Custom templates get a
+# full UUID id (vs. the standard 8-char hex for built-ins) and is_custom: true.
 curl -s -X POST "https://api.hevyapp.com/v1/exercise_templates" -H "api-key: $HEVY_API_KEY" \
   -H "Content-Type: application/json" -d '{"exercise": {"title": "...", "muscle_group": "calves", "exercise_type": "bodyweight_reps", "equipment_category": "none"}}'
 
