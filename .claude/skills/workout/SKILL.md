@@ -10,6 +10,9 @@ would otherwise play: decide the session, set target weights, adjust over time. 
 see `vault/Areas/Health/Тренування.md`'s "Профіль і обмеження" section for his stated constraints
 (disc protrusions, reflux) and respect them every time, not just when first set up.
 
+For anything beyond day-of prep — exercise substitutions, form questions, pain/discomfort flags,
+reviewing a logged session, or changing the program itself — see the `coach` skill instead.
+
 `vault/Areas/Health/Тренування.md` holds the coaching context (profile, constraints, the Full Body
 A/B exercise lists, evidence-based rationale in [[Тренування — дослідження і критика]]) — still the
 source Claude reads to design/adjust the program. Actual session history (what got logged, weight ×
