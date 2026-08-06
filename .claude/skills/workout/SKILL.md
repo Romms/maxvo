@@ -40,14 +40,21 @@ following an unsound instruction.
 
 - **State the concern plainly and specifically** when a request conflicts with the evidence base or
   his stated constraints — don't hedge it into mush, and don't silently implement it hoping it's fine.
+  Concrete phrasing, not a vague caveat: *"Це суперечить [конкретне джерело/правило] — [конкретний
+  ризик]. Хочеш все одно так, чи глянемо альтернативу?"* State it, then wait for an actual answer.
 - **Weigh reversible vs irreversible**, same rule as the operating guide's general decision framework:
   a one-off (try a heavier single, skip today's cooldown because he's late) — flag briefly, let it
   go. A repeated pattern or real injury risk (ignoring a pain signal that already showed up once,
   dropping warm-up for weeks, forcing a weight jump past what double progression supports) — push
   back clearly and don't implement it silently without naming the concern first.
-- **After pushing back once, if he still wants to proceed** — do it. He's not being corrected like a
-  child; "complete him, don't correct him." But log the disagreement and what was actually decided in
-  `Тренування — дослідження і критика.md` so the override is visible, not swallowed.
+- **"He still wants to proceed" means he explicitly said so after the flag** (e.g. "так, все одно",
+  "роби так") — him moving on without addressing the flag is not consent, that's a stall; re-raise it
+  once rather than treating silence as an override.
+- **After pushing back once, if he explicitly still wants to proceed** — do it. He's not being
+  corrected like a child; "complete him, don't correct him." But log the disagreement and what was
+  actually decided in `Тренування — дослідження і критика.md` so the override is visible, not
+  swallowed — future-you (and future Roman) should be able to see that a recommendation was made and
+  knowingly overridden, not that it was never raised.
 
 ## Setup (one-time, not done automatically)
 
@@ -93,14 +100,12 @@ body or the API rejects the whole request with "Unrecognized key(s)".
 
 1. `GET /v1/workouts` (most recent page) to find which routine (A or B — inferred from which
    exercises appear) was logged last, and alternate. No workouts yet → today is A.
-2. For each exercise in that session's list, look at its most recent occurrence across recent workouts:
-   - No prior entry anywhere → calibration: start light, aim for 10-12 reps, note it's a first
-     attempt.
-   - Prior entry, felt easy/hit the top of the rep range comfortably → suggest a small increase
-     (weight, or +1 rep if the equipment's increment is too coarse).
-   - Prior entry, felt hard/didn't complete the range → suggest repeating the same weight.
-   Always frame these as suggestions to confirm in the moment, not fixed prescriptions — how it
-   actually feels during the set is the real signal, not the history.
+2. For each exercise in that session's list, look at its most recent occurrence across recent workouts
+   and apply the double-progression/RIR rule from `Тренування.md`'s "Профіль і обмеження" verbatim —
+   don't re-derive a looser version here, the two will drift. No prior entry anywhere → calibration:
+   start light, aim for 10-12 reps, note it's a first attempt. Always frame the suggestion as
+   something to confirm in the moment, not a fixed prescription — how it actually feels during the
+   set is the real signal, not the history.
 3. Present the session plan as one message: which session (A or B), then each exercise (grouped by
    superset pair where relevant) with suggested weight/reps — short and scannable, like `plan-day`'s
    proposed-schedule format, not a wall of explanation.
@@ -121,6 +126,8 @@ Answer directly and practically (cues, common mistakes) — he's often standing 
 so short and actionable beats thorough. If a written cue turns out to be too compressed to follow in
 practice (happened 06.08 with the hamstring stretch description) — rewrite it clearer in
 `Тренування.md`, not just re-explain it verbally and let the same confusion recur next time.
+
+## Pain and discomfort flags
 
 **If something aggravates his back or triggers reflux discomfort** — tell him to stop that exercise
 for the session and swap in an alternative respecting the same constraint (torso staying
