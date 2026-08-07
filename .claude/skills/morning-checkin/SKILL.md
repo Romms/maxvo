@@ -36,6 +36,10 @@ pre-seeded a draft priority there yesterday, start from that instead of a blank 
    fixed commitments, energy note. Create the file (and folder) if it doesn't exist yet.
 9. Commit and push to `main`. If the current session's working branch differs from `main`, push to
    that branch too, to keep them in sync.
+10. Send a short proactive Telegram summary (priority + first micro-step only, not the whole
+    chain) — see "Telegram" in `CLAUDE.md` for the curl pattern and chat_id. This is a notification,
+    not a substitute for the conversation above; skip silently (don't block or retry hard) if the
+    curl fails, just note the failure inline rather than treating the check-in itself as incomplete.
 
 Keep the whole exchange short and direct. Give a one-paragraph summary at the end, not a recap of
 every step.

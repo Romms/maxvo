@@ -57,6 +57,18 @@ If a call against one of these IDs 404s or hits the wrong calendar, it means the
 recreated (already happened once, "Daily Tasks" used to be "Work") — re-resolve via `list_calendars`
 by name and update the ID above.
 
+**Telegram.** Roman's personal assistant bot ("Personal Assistant") relays two-way chat via
+`github.com/Romms/telegram-bridge` (Railway "Personal Services") — see
+`vault/Projects/2026-08-07 - Telegram-чат з асистентом.md` for the full architecture. Each incoming
+Telegram message fires a **new** session (no persistent-session binding available for API-triggered
+routines), so context comes from the shared git vault, not literal conversation continuity. For
+**proactive** sends (this session/a routine messaging Roman first, not replying to an incoming
+message) — e.g. `morning-checkin`/`evening-checkin`'s Telegram summary step — use
+`curl -s -X POST "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage" -d "chat_id=393290255" --data-urlencode "text=..."`.
+Requires the session's environment to have `api.telegram.org` in its network allowlist and
+`TELEGRAM_BOT_TOKEN` set — true for the environment this persistent session runs in ("vomax") as of
+2026-08-07; if a proactive send 403s, the environment/network policy likely changed.
+
 **Self-hosted personal integrations.** For a service whose API needs OAuth with rotating refresh
 tokens (a static env var doesn't work — see `work-assistant`/`BASE44_API_KEY` for the simpler case
 where it does), the standing pattern is: one Railway project, **"Personal Services"**, with each
