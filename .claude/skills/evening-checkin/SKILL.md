@@ -23,7 +23,12 @@ Today's note lives at `vault/Daily/YYYY-MM-DD.md` (today's date).
    `docs/capture-system.md`) or `vault/Inbox.md` (if unclear) — never let it silently disappear.
 5. New ideas or urges that came up today but weren't today's priority → `vault/Projects/README.md`
    Ідеї (add a row plus a `YYYY-MM-DD - Title.md` detail file), parked. Do not start them tonight.
-6. Ask for tomorrow's likely one priority and write it as a draft into tomorrow's
+6. **Before asking, remind him what he's actually choosing from** — open Активні rows relevant to
+   tomorrow, anything left open from today (step 4), ideas parked today (step 5). Don't ask "what's
+   tomorrow's priority" cold; his Discipline/Arranger aren't the strength that would otherwise
+   surface this list from memory (`docs/roman-operating-guide.md`) — surfacing it is this skill's
+   job, same principle `morning-checkin` already applies before its own priority question. Then ask
+   for tomorrow's likely one priority and write it as a draft into tomorrow's
    `vault/Daily/YYYY-MM-DD.md` (`## Ранок`, marked as draft) — this is what removes the morning's
    blank-page problem.
 7. One quick fuel-guard question: energy/sleep, and whether he picked up more "crises" than the one

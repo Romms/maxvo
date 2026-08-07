@@ -8,6 +8,15 @@ Why daily, on top of weekly: the weekly checkpoint sets the one priority for the
 initiation is a day-by-day (often hour-by-hour) problem. The daily rituals exist to make starting
 easier, not to add more planning overhead.
 
+**Never ask him to pick/name something cold — remind him what he's choosing from first.** Roman said
+this explicitly (07.08): "коли питаєш за щось - нагадуй про всі речі які я планував!" His
+Discipline/Arranger aren't the strength that would otherwise surface a list of open items from memory
+(`docs/roman-operating-guide.md`) — that surfacing is this assistant's job, not something to leave to
+him. `morning-checkin` already does this before its priority question (step 3 lists Активні
+due-dates/"уточнити" rows before step 4 asks); `evening-checkin` does the same before its
+tomorrow's-priority question. Apply the same pattern anywhere a checkin (daily or weekly) asks him to
+choose or decide — surface the relevant open items/options first, don't ask blank.
+
 ## Where it lives
 
 Each day gets one note: `vault/Daily/YYYY-MM-DD.md`, with a `## Ранок` section written by the
