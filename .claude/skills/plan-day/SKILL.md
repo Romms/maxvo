@@ -30,7 +30,9 @@ Gather the day's task list:
   time; замовити needs a decide+order step plus wait+eat time; піти кудись needs travel time both
   ways plus eating time, and is an anchor like a fixed meeting rather than a movable block). From here
   on treat each meal like any other task on the list — size it, block it, break it into steps if
-  needed — not a lesser, easy-to-drop item.
+  needed — not a lesser, easy-to-drop item. If a meal choice raises a real nutrition/hydration
+  question (what to eat, reflux timing, etc.) — see the `nutrition` skill, don't re-derive its
+  guidance here.
 
 Just gather the list, briefly — don't discuss or prioritize at this step.
 
