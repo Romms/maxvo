@@ -49,16 +49,32 @@ specifically, not just each half separately.
 
 ## WHOOP integration
 
-**Not yet implemented — pending research**, same reason `workout`'s program-design section defers
-things it hasn't verified. Once `Харчування — дослідження і критика.md` has a WHOOP section (recovery
-score / strain / sleep performance → nutrition implications, and a concrete integration point using
-the existing WHOOP MCP tools — see `vault/Projects/2026-08-03 - WHOOP integration.md` for what's
-available), fold it in here. Until then, don't guess a mechanism — if Roman asks "what does WHOOP say
-I should eat," say the research isn't done yet rather than improvising an answer.
+Researched 07.08 — see `Харчування — дослідження і критика.md`'s "WHOOP (recovery/strain/сон) і
+харчування" section for the full evidence and reasoning. Same design principle as every other skill
+in `[[2026-08-03 - WHOOP integration]]`: **a stated, evidence-backed observation Roman confirms,
+never a silent adjustment.**
 
-When it does land, the design principle carries over from the existing WHOOP integration file's
-stated rule for every other skill: **surface it as a stated, evidence-backed observation Roman
-confirms, never a silent adjustment** to what he eats or drinks.
+1. **Start of a nutrition check-in — one `get_today` call** (recovery %, HRV, sleep duration/
+   performance %, yesterday's strain). Don't call `sync_data`/`get_recovery_trends`/
+   `get_strain_history` unless a multi-day baseline comparison is actually needed.
+2. **Strain noticeably higher than usual** → surface it and *offer* (don't add) a bit more
+   food/carbs next meal or the existing training-day hydration bump (+300-500 ml): *"вчора strain
+   X, вище звичного — хочеш трохи більше вуглеводів/рідини сьогодні?"* Strain/calorie numbers carry
+   real measurement error (~10-15% steady cardio, higher for strength work) and no study ties WHOOP
+   strain specifically to a nutrition outcome — qualitative nudge only, never a calculated target.
+3. **Recovery low today** → don't invent a nutrition fix from scratch, the evidence for
+   hydration/anti-inflammatory-food links is thin/indirect. The one thing worth asking directly:
+   alcohol last night — dose-dependent HRV suppression is the one strong, causal link in the
+   research. Otherwise just show the number next to the existing energy question
+   `morning-checkin` already asks — a mismatch (low WHOOP recovery, normal-feeling energy, or the
+   reverse) is itself worth noting.
+4. **Sleep performance noticeably lower than usual** → this is where WHOOP data ties to the
+   strongest evidence: ask about last caffeine timing (flag if under 6h before bed — Drake et al.
+   2013 showed even 6h-before caffeine cuts objective sleep time by over an hour) and last-meal
+   timing relative to lying down (same 2-3h rule already established for reflux — two independent
+   mechanisms converge on it).
+5. **Explicitly don't**: build any automatic strain→calorie or HRV→supplement formula. The
+   measurement error and evidence gaps make a precise calculation false precision, not rigor.
 
 ## Program design changes
 
