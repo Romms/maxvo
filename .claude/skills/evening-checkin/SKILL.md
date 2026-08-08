@@ -36,5 +36,9 @@ Today's note lives at `vault/Daily/YYYY-MM-DD.md` (today's date).
 8. Write everything into today's note under `## Вечір`.
 9. Commit and push to `main`. If the current session's working branch differs from `main`, push to
    that branch too, to keep them in sync.
+10. Send a short proactive Telegram summary (what got done today + tomorrow's priority) — see
+    "Telegram" in `CLAUDE.md` for the curl pattern and chat_id. This is a notification, not a
+    substitute for the conversation above; skip silently (don't block or retry hard) if the curl
+    fails, just note the failure inline rather than treating the check-in itself as incomplete.
 
 Keep it short — a checkpoint, not a debrief. One-paragraph summary at the end.
