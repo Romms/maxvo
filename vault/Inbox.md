@@ -12,11 +12,15 @@ tags: [meta, inbox]
 
 ## Unprocessed
 
-- [ ] 2026-08-09→10: (Gmail, ранковий скіп) Microsoft 365 alert (medium severity) — "Email sending
-  limit exceeded" для VVS@UNICYB.KIEV.UA (робочий домен) — **повторилось другий день поспіль**,
-  майже в той самий час (8.08 19:38, 9.08 19:39). Патерн натякає на щось регулярне/заплановане
-  (масова розсилка за розкладом), а не разовий збій — але варто підтвердити, а не просто
-  припустити.
+- [ ] 2026-08-09→11: (Gmail, ранковий скіп) **ЕСКАЛАЦІЯ — Microsoft 365, робочий домен
+  UNICYB.KIEV.UA.** Почалось 8-9.08 як повторюваний medium alert "Email sending limit exceeded"
+  (VVS@UNICYB.KIEV.UA, майже той самий час обидва дні). **10.08 переросло в інше**: 2× high-severity
+  "User restricted from sending email" / "Potentially compromised user account" (VALYA@UNICYB.KIEV.UA
+  13:30 UTC, DZLOSCHASTYEV@UNICYB.KIEV.UA 14:00 UTC) + 2× medium "Suspicious outbound email activity"
+  (13:30, 13:45 UTC) — інші користувачі, не VVS. Це вже не схоже на заплановану розсилку — виглядає
+  як можливий compromise/spam-campaign на робочому домені (кілька акаунтів, high-severity
+  "restricted"+"compromised" формулювання). Роман зазначений у копії алертів (не лише admin) —
+  варто перевірити з IT/адміном домену, а не просто спостерігати.
 - [ ] 2026-08-09: (Gmail, ранковий скіп) TransferGo просить підтвердити особу, щоб продовжити
   надсилати перекази — можливо блокує майбутні перекази, якщо не підтвердити.
 - [ ] 2026-08-08: Роман хоче попрацювати над тим, як говорити близьким людям (особливо у
