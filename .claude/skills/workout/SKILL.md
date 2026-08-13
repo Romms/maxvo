@@ -189,6 +189,14 @@ Sources: [Reflection and self-critique — Labo LLM](https://www.labo-llm.fr/en/
   it's not yet reflected in Hevy.
 - Don't silently escalate difficulty because "it's been a while" — progression comes from what
   actually got logged, not a fixed schedule.
+- **Don't read cross-exercise weight proportions as a pattern while calibration is still running**
+  (Roman, 13.08: *"я поки підбираю ваги, тому вони так пригають"*). Until each exercise has a settled
+  working weight, jumping numbers and ramping within a session are the calibration protocol working
+  as designed — not a broken protocol, an imbalance, or an under-loaded muscle. Machine weights
+  aren't comparable across machines anyway (different levers/stacks), so "push:pull looks off"
+  during this phase is noise dressed as signal. What *is* readable during calibration: a weight he
+  lowered deliberately in response to pain/discomfort (that's a signal about the body, not about
+  weight-finding), and his own effort notes ("важко", "можна було більше").
 - Don't invent research you didn't actually check — if you're reasoning from general training
   knowledge rather than a source you looked up for this specific question, say so, don't dress it up
   as cited evidence.
