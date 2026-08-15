@@ -76,6 +76,22 @@ tomorrow's start.
 Both rituals stay short by design — a checkpoint, not a planning meeting. If either starts running
 long, that's a signal to trim it, not to push through.
 
+### Temporary add-ons (and how they end)
+
+A ritual can carry a **time-boxed** extra step when there's a real reason — but it has to name its
+own end condition when it's added, otherwise the ritual accretes steps forever and drifts away from
+"a checkpoint, not a planning meeting" above. The pattern: attach the extra question to an existing
+one rather than adding a new turn, write the end condition into the skill, and delete it when the
+condition is met.
+
+Currently active (added 15.08.2026): **headache diary before Roman's doctor visit.** Morning folds
+"did you wake with head symptoms?" into the existing energy/sleep question — waking state can only
+be captured in the morning, and the 15.08 episode began during sleep. Evening folds the day's diary
+line into the existing fuel-guard question, **including on days with no pain** — the baseline days
+are what make a trigger visible at all, and they're the ones that get skipped. Ends when the Активні
+row "Звернутися до лікаря щодо головного болю" moves to Завершено. Structure and rationale live in
+`vault/Areas/Health/Головний біль — щоденник спостережень.md`, not in the skills.
+
 ## During the day: background logging
 
 Beyond what Roman explicitly shares (that's the Inbox's job, see `capture-system.md`), notable things

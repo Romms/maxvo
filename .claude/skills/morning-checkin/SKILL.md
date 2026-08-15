@@ -31,7 +31,14 @@ pre-seeded a draft priority there yesterday, start from that instead of a blank 
    → "..."). See "Task breakdown" in `docs/daily-rituals.md` for why a chain beats a single first
    step: the stuck point is usually the "що далі?" gap between steps, not only the start.
 6. Note any fixed commitments today if not already obvious (meetings, calls).
-7. One quick energy/sleep question — light, not an interrogation.
+7. One quick energy/sleep question — light, not an interrogation. **While the headache diary is
+   running** (see below), fold one extra clause into this same question — whether he woke with any
+   head symptoms (біль у лобі, дзвін, "під водою") — rather than asking it separately. The 15.08
+   episode started during sleep, so waking state is the field most likely to matter, and it can only
+   be captured in the morning. If yes → record it in
+   `vault/Areas/Health/Головний біль — щоденник спостережень.md` per that file's structure (don't
+   restate the fields here); if no → nothing to write in the morning, the evening ritual logs the
+   "no pain" line for the day.
 8. Write it into today's `vault/Daily/YYYY-MM-DD.md` under `## Ранок`: one priority, step chain,
    fixed commitments, energy note. Create the file (and folder) if it doesn't exist yet.
 9. Commit and push to `main`. If the current session's working branch differs from `main`, push to
@@ -43,3 +50,12 @@ pre-seeded a draft priority there yesterday, start from that instead of a blank 
 
 Keep the whole exchange short and direct. Give a one-paragraph summary at the end, not a recap of
 every step.
+
+## Headache diary (тимчасово, до візиту до лікаря)
+
+Active from 15.08.2026 until Roman's doctor visit (Активні row "Звернутися до лікаря щодо головного
+болю", орієнтир — початок вересня). This is a **temporary** addition to the ritual, not a permanent
+step: when the row moves to Завершено, delete this section and the clause in step 7 rather than
+leaving them to run indefinitely. The diary itself, including what to record and why days without
+pain matter, lives in `vault/Areas/Health/Головний біль — щоденник спостережень.md` — read it there,
+don't duplicate the field list into this skill.
