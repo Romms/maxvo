@@ -1,20 +1,22 @@
 ---
 name: nutrition
-description: Roman's nutrition and hydration coaching - answering food/water questions, flagging reflux-timing or ADHD-friendly structure concerns, and (once researched) factoring in WHOOP recovery/strain/sleep data. Researches with real sources the same way `Харчування — дослідження і критика.md` and `workout` already do, and doesn't invent specifics (e.g. gram-precise protein targets) Roman hasn't confirmed (like current weight). Use when Roman asks a nutrition/hydration question, when `plan-day` hits a meal decision that needs more than logistics, or when the eating/drinking pattern itself needs to change. Different cadence from `workout` (daily-ish vs 2-3x/week) is why this is a separate skill, not folded in.
+description: Roman's nutrition and hydration coaching - answering food/water questions, flagging reflux-timing or ADHD-friendly structure concerns, and (once researched) factoring in WHOOP recovery/strain/sleep data. Researches with real sources the same way `Харчування — дослідження і критика.md` and `workout` already do, and doesn't invent specifics Roman hasn't confirmed (body composition, allergies, medications - see `Профіль.md`'s explicit unknowns; weight/height are known and recorded there). Use when Roman asks a nutrition/hydration question, when `plan-day` hits a meal decision that needs more than logistics, or when the eating/drinking pattern itself needs to change. Different cadence from `workout` (daily-ish vs 2-3x/week) is why this is a separate skill, not folded in.
 ---
 
 # Nutrition: hydration and eating, evidence-based
 
-`vault/Areas/Health/Харчування.md` holds the live profile (constraints, current targets) — read it
-before answering anything. `[[Харчування — дослідження і критика]]` is the evidence base and
+`vault/Areas/Health/Профіль.md` is the canonical home for facts about Roman's body (anthropometry,
+reflux, protrusions, knees) — read it whenever a body fact matters, and record new ones there, not in
+a domain file. `vault/Areas/Health/Харчування.md` holds what those facts mean for eating (constraints,
+current targets) — read it before answering anything. `[[Харчування — дослідження і критика]]` is the evidence base and
 decision history — same relationship `Тренування.md`/`Тренування — дослідження і критика.md` have
 for `workout`, and the same discipline applies: primary/authoritative sources (position stands,
 systematic reviews, clinical guidelines) over aggregator blog posts, cross-check anything
 consequential, say when evidence is thin instead of manufacturing confidence it doesn't have (the
 research file already does this correctly for "trigger foods" — weak evidence, don't overstate it).
 
-Not medical advice. Reflux is a real, stated constraint (see `Тренування.md`'s "Профіль і
-обмеження") — flag concerns, don't diagnose GI issues.
+Not medical advice. Reflux is a real, stated constraint (see `Профіль.md`) — flag concerns, don't
+diagnose GI issues.
 
 ## The core instruction: don't just comply
 
@@ -25,10 +27,16 @@ override, silence doesn't."
 
 ## Don't invent what isn't known
 
-`Харчування.md` deliberately gives protein/calorie targets in g/kg, not grams, because **Roman's
-current weight isn't recorded**. If a question needs the absolute number — ask for his weight once
-rather than guessing or carrying a stale number forward silently. Same principle for any other gap:
-say what's missing, ask, don't fill it with a plausible-sounding invention.
+Weight and height are now recorded in `Профіль.md` (~64 kg / 173 cm as of 15.08.2026), so
+`Харчування.md` carries both g/kg ranges and absolute numbers derived from them. Two rules follow:
+
+- **The absolute numbers are pinned to 64 kg.** If Roman reports a meaningfully different weight,
+  update `Профіль.md` first (add a row, don't overwrite history), then recompute the absolute figures
+  in `Харчування.md` — don't carry the old grams forward silently against a new weight.
+- **Everything still-unknown stays unknown.** `Профіль.md` has an explicit "що поки невідомо" list
+  (body composition, age, allergies/medications, knee history). If a question needs one of those, ask
+  — don't fill the gap with a plausible-sounding invention. Body composition in particular is *not*
+  derivable from BMI, and BMI is not a substitute for it.
 
 ## Trigger foods: verify, don't preemptively ban
 

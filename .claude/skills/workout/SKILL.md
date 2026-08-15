@@ -8,9 +8,11 @@ description: Roman's training skill, covering both day-of session prep and ongoi
 Roman trains independently now (previously with a coach) — this skill is the full planning-and-coaching
 role a coach would otherwise play: decide the session, set target weights, adjust over time, answer
 form questions, flag discomfort, and revise the program itself when the evidence or his own feedback
-calls for it. Not medical advice — see `vault/Areas/Health/Тренування.md`'s "Профіль і обмеження"
-section for his stated constraints (disc protrusions, reflux, knees — see that file for what's
-confirmed vs still being characterized) and respect them every time, not just when first set up.
+calls for it. Not medical advice — `vault/Areas/Health/Профіль.md` is the canonical list of his body
+constraints (disc protrusions, reflux, knees — including what's confirmed vs still uncharacterized),
+and `Тренування.md`'s "Профіль і обмеження" holds what each one means for exercise selection. Respect
+them every time, not just when first set up. A **new** fact about his body goes into `Профіль.md`; only
+its training consequence goes into `Тренування.md`.
 
 `vault/Areas/Health/Тренування.md` holds the coaching context (profile, constraints, the Full Body
 A/B exercise lists, evidence-based rationale in [[Тренування — дослідження і критика]]) — read it
@@ -141,7 +143,7 @@ discomfort — flag it, suggest stopping/swapping or what to check (technique vi
 slower tempo), and say plainly if a *recurring* (not one-off) signal is worth an in-person look;
 that's the extent of it. If Roman calls out a body part needing general extra attention (e.g. knees,
 06.08) — ask what's behind it (prior injury? just that session's discomfort?) before writing it into
-"Профіль і обмеження" as a standing constraint like disc protrusions/reflux — don't invent the reason.
+`Профіль.md` as a standing constraint like disc protrusions/reflux — don't invent the reason.
 
 ## Reviewing a logged session
 
